@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="hfrin0102sr"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="SUBREPORT_DIR" isForPrompting="true" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["C:\\workspace\\TCBW\\WebContent\\report\\hfr\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sr_subreport0" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="sr_subreport1" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="sr_subreport2" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="sr_subreport3" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="sr_subreport4" isForPrompting="false" class="java.lang.String"/>
+
+	<field name="id" class="java.lang.Long"/>
+	<field name="applNo" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="occurDate" class="java.lang.String"/>
+	<field name="notifierName" class="java.lang.String"/>
+	<field name="notifierTel" class="java.lang.String"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="notifierEamil" class="java.lang.String"/>
+	<field name="eatersName" class="java.lang.String"/>
+	<field name="eatersHight" class="java.lang.String"/>
+	<field name="eatersWeight" class="java.lang.String"/>
+	<field name="eatersAge" class="java.lang.String"/>
+	<field name="eatersSex" class="java.lang.String"/>
+	<field name="eatersTel" class="java.lang.String"/>
+	<field name="eatersIdNum" class="java.lang.String"/>
+	<field name="unHealthIsYes" class="java.lang.String"/>
+	<field name="unHealthBrief" class="java.lang.String"/>
+	<field name="occurredAfter" class="java.lang.String"/>
+	<field name="symptom" class="java.lang.String"/>
+	<field name="severity" class="java.lang.String"/>
+	<field name="symptomDuration" class="java.lang.String"/>
+	<field name="stopEatingReaction" class="java.lang.String"/>
+	<field name="againEatingReaction" class="java.lang.String"/>
+	<field name="isMedical" class="java.lang.String"/>
+	<field name="isWhileMedicine" class="java.lang.String"/>
+	<field name="isWhileCMedicine" class="java.lang.String"/>
+	<field name="isWhileOther" class="java.lang.String"/>
+	<field name="otherExplainMemo" class="java.lang.String"/>
+	<field name="drugAllergies" class="java.lang.String"/>
+	<field name="foodAllergies" class="java.lang.String"/>
+	<field name="diseaseHistory" class="java.lang.String"/>
+	<field name="lifeHistory" class="java.lang.String"/>
+	<field name="isReactionResult" class="java.lang.String"/>
+	<field name="obj1" class="java.lang.Object"/>
+	<field name="obj2" class="java.lang.Object"/>
+	<field name="obj1and2text" class="java.lang.String"/>
+	<field name="obj3" class="java.lang.Object"/>
+	<field name="obj3text" class="java.lang.String"/>
+	<field name="obj4" class="java.lang.Object"/>
+	<field name="obj4text" class="java.lang.String"/>
+	<field name="obj5" class="java.lang.Object"/>
+	<field name="obj5text" class="java.lang.String"/>
+
+
+		<group  name="group1" >
+			<groupExpression><![CDATA[]]></groupExpression>
+			<groupHeader>
+			<band height="62"  isSplitAllowed="false" >
+				<subreport  isUsingCache="true">
+					<reportElement
+						x="95"
+						y="16"
+						width="439"
+						height="44"
+						key="subreport-1"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<dataSourceExpression><![CDATA[$F{obj1}]]></dataSourceExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{sr_subreport0}]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement
+						x="1"
+						y="-1"
+						width="534"
+						height="18"
+						key="staticText-57"/>
+					<box topBorder="1Point" topBorderColor="#000000" leftBorder="1Point" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[2.健康食品資料]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="1"
+						y="17"
+						width="95"
+						height="45"
+						key="textField-35"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="1Point" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obj1and2text}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="96"
+						y="17"
+						width="439"
+						height="45"
+						key="staticText-93"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[]]></text>
+				</staticText>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
+		<group  name="group2" >
+			<groupExpression><![CDATA[]]></groupExpression>
+			<groupHeader>
+			<band height="38"  isSplitAllowed="false" >
+				<subreport  isUsingCache="true">
+					<reportElement
+						x="96"
+						y="-1"
+						width="439"
+						height="38"
+						key="subreport-5"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<dataSourceExpression><![CDATA[$F{obj2}]]></dataSourceExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{sr_subreport1}]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement
+						x="1"
+						y="0"
+						width="95"
+						height="38"
+						key="staticText-92"/>
+					<box topBorder="1Point" topBorderColor="#000000" leftBorder="1Point" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="96"
+						y="0"
+						width="439"
+						height="38"
+						key="staticText-94"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[]]></text>
+				</staticText>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
+		<group  name="group3" >
+			<groupExpression><![CDATA[]]></groupExpression>
+			<groupHeader>
+			<band height="45"  isSplitAllowed="false" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="1"
+						y="19"
+						width="139"
+						height="26"
+						key="textField-34"
+						stretchType="RelativeToBandHeight"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="1Point" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obj3text}]]></textFieldExpression>
+				</textField>
+				<subreport  isUsingCache="true">
+					<reportElement
+						x="140"
+						y="18"
+						width="394"
+						height="26"
+						key="subreport-4"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<dataSourceExpression><![CDATA[$F{obj3}]]></dataSourceExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{sr_subreport2}]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement
+						x="1"
+						y="0"
+						width="534"
+						height="19"
+						key="staticText-56"/>
+					<box topBorder="1Point" topBorderColor="#000000" leftBorder="1Point" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[3.一般食品(非衛生署核淮為健康食品)資料]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="141"
+						y="19"
+						width="394"
+						height="26"
+						key="staticText-95"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[]]></text>
+				</staticText>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
+		<group  name="group4" >
+			<groupExpression><![CDATA[]]></groupExpression>
+			<groupHeader>
+			<band height="18"  isSplitAllowed="false" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="1"
+						y="0"
+						width="139"
+						height="18"
+						key="textField-33"
+						stretchType="RelativeToBandHeight"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="1Point" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obj4text}]]></textFieldExpression>
+				</textField>
+				<subreport  isUsingCache="true">
+					<reportElement
+						x="139"
+						y="-1"
+						width="394"
+						height="18"
+						key="subreport-3"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<dataSourceExpression><![CDATA[$F{obj4}]]></dataSourceExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{sr_subreport3}]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement
+						x="141"
+						y="0"
+						width="394"
+						height="18"
+						key="staticText-96"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[]]></text>
+				</staticText>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
+		<group  name="group5" >
+			<groupExpression><![CDATA[]]></groupExpression>
+			<groupHeader>
+			<band height="19"  isSplitAllowed="false" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="1"
+						y="0"
+						width="139"
+						height="18"
+						key="textField-32"
+						stretchType="RelativeToBandHeight"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="1Point" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{obj5text}]]></textFieldExpression>
+				</textField>
+				<subreport  isUsingCache="true">
+					<reportElement
+						x="140"
+						y="-1"
+						width="394"
+						height="18"
+						key="subreport-2"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<dataSourceExpression><![CDATA[$F{obj5}]]></dataSourceExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{sr_subreport4}]]></subreportExpression>
+				</subreport>
+				<staticText>
+					<reportElement
+						x="141"
+						y="0"
+						width="394"
+						height="18"
+						key="staticText-97"
+						stretchType="RelativeToBandHeight"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="1Point" rightBorderColor="#000000" bottomBorder="1Point" bottomBorderColor="#000000"/>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[]]></text>
+				</staticText>
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="382"  isSplitAllowed="false" >
+				<line direction="TopDown">
+					<reportElement
+						x="535"
+						y="0"
+						width="0"
+						height="376"
+						key="line-81"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="0"
+						width="0"
+						height="376"
+						key="line-82"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="16"
+						width="535"
+						height="1"
+						key="line-83"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="18"
+						width="137"
+						height="38"
+						key="staticText-99"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[健康食品未達宣稱保健功效(請簡述)]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="58"
+						width="535"
+						height="1"
+						key="line-84"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="61"
+						width="143"
+						height="15"
+						key="staticText-100"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[發生非預期反應日期(年/月/日)]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="78"
+						width="535"
+						height="1"
+						key="line-85"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="81"
+						width="137"
+						height="94"
+						key="staticText-101"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[簡述非預期反應*詳見備註*
+(發生經過、症狀、嚴重度、症狀維持時間、停止食用後反應、再次食用是否有相同反應]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="181"
+						width="535"
+						height="1"
+						key="line-86"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="145"
+						y="17"
+						width="0"
+						height="164"
+						key="line-87"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="184"
+						width="530"
+						height="44"
+						key="staticText-102"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[備註：簡述非預期反應(範例)
+1.症狀：皮膚癢疹。 2.嚴重度：全身或局部。 3.發生經過：3/20開始食用，3/21臉部開始有癢疹，3/21手跟胸口.....一直到4/1疹子才消失 4.症狀維持時間 5.停止食用後反應。 6.再次是否有相同食用反應：4/9再次食用，4/10又出現疹子。]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="230"
+						width="535"
+						height="1"
+						key="line-88"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="233"
+						width="137"
+						height="15"
+						key="staticText-103"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[是否有就醫]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="250"
+						width="535"
+						height="1"
+						key="line-89"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="310"
+						width="535"
+						height="1"
+						key="line-90"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="290"
+						width="535"
+						height="1"
+						key="line-91"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="270"
+						width="535"
+						height="1"
+						key="line-92"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="253"
+						width="137"
+						height="15"
+						key="staticText-104"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[同時服用西藥]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="2"
+						y="273"
+						width="137"
+						height="15"
+						key="staticText-105"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[同時服用中藥]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="2"
+						y="293"
+						width="137"
+						height="15"
+						key="staticText-106"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[同時服用其他錠、膠劑型食品]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="2"
+						y="313"
+						width="137"
+						height="15"
+						key="staticText-107"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[其他需說明之事項]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="145"
+						y="231"
+						width="0"
+						height="100"
+						key="line-93"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="148"
+						y="24"
+						width="384"
+						height="27"
+						key="textField-50"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{unHealthIsYes}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="148"
+						y="61"
+						width="384"
+						height="15"
+						key="textField-51"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{occurDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="148"
+						y="233"
+						width="384"
+						height="15"
+						key="textField-52"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{isMedical}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="148"
+						y="253"
+						width="384"
+						height="15"
+						key="textField-53"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{isWhileMedicine}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="148"
+						y="273"
+						width="384"
+						height="15"
+						key="textField-54"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{isWhileCMedicine}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="148"
+						y="293"
+						width="384"
+						height="15"
+						key="textField-55"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{isWhileOther}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="148"
+						y="313"
+						width="384"
+						height="15"
+						key="textField-56"
+						isPrintWhenDetailOverflows="true"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{otherExplainMemo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="148"
+						y="81"
+						width="41"
+						height="16"
+						key="staticText-108"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[1.症狀：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="148"
+						y="97"
+						width="51"
+						height="16"
+						key="staticText-109"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[2.嚴重度：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="148"
+						y="113"
+						width="61"
+						height="16"
+						key="staticText-110"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[3.發生經過：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="148"
+						y="129"
+						width="82"
+						height="16"
+						key="staticText-111"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[4.症狀維持時間：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="148"
+						y="145"
+						width="90"
+						height="16"
+						key="staticText-112"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[5.停止食用後反應：]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="148"
+						y="161"
+						width="131"
+						height="16"
+						key="staticText-113"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[6.再次食用是否有相同反應：]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="189"
+						y="81"
+						width="343"
+						height="16"
+						key="textField-57"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{symptom}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="199"
+						y="97"
+						width="333"
+						height="16"
+						key="textField-58"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{severity}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="209"
+						y="113"
+						width="323"
+						height="16"
+						key="textField-59"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{occurredAfter}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="230"
+						y="129"
+						width="302"
+						height="16"
+						key="textField-60"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{symptomDuration}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="238"
+						y="145"
+						width="294"
+						height="16"
+						key="textField-61"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{stopEatingReaction}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="279"
+						y="161"
+						width="253"
+						height="16"
+						key="textField-62"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{againEatingReaction}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="330"
+						width="535"
+						height="1"
+						key="line-94"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="333"
+						width="530"
+						height="44"
+						key="staticText-114"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[以上資料敬請詳加填寫，聯絡資料部份務必填寫真實姓名、電話，若有需要，通報中心會與通報者或食用者聯絡，謝謝
+電話　(02)2358-7343　地址：台北市中正區羅斯福路一段32號2樓　傳真　(02)2358-4098　網址　http://hf.fda.gov.tw
+電子信箱　hf@tdrf.org.tw]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="377"
+						width="535"
+						height="1"
+						key="line-95"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+			</groupFooter>
+		</group>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="200"  isSplitAllowed="false" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="7"
+						width="102"
+						height="12"
+						key="staticText-1"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="8" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[個案編號(由通報中心填寫):]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="163"
+						y="0"
+						width="238"
+						height="18"
+						key="staticText-2"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[全國健康食品及膠囊錠狀食品非預期反應通報簡表]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="434"
+						y="7"
+						width="97"
+						height="12"
+						key="staticText-3"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Right">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="8" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[2013.7(修)]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="102"
+						y="7"
+						width="61"
+						height="12"
+						key="textField-31"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{applNo}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="535"
+						y="19"
+						width="0"
+						height="180"
+						key="line-60"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="120"
+						width="535"
+						height="1"
+						key="line-62"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="112"
+						y="182"
+						width="271"
+						height="16"
+						key="textField-36"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{isReactionResult}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="2"
+						y="182"
+						width="110"
+						height="16"
+						key="staticText-58"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[是否告知案件評估結果：]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="279"
+						y="163"
+						width="253"
+						height="16"
+						key="textField-37"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{notifierEamil}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="60"
+						y="163"
+						width="149"
+						height="16"
+						key="textField-38"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{notifierTel}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="153"
+						y="143"
+						width="97"
+						height="16"
+						key="textField-39"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{notifierName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="313"
+						y="121"
+						width="219"
+						height="16"
+						key="textField-40"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{lifeHistory}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="56"
+						y="121"
+						width="203"
+						height="16"
+						key="textField-41"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{diseaseHistory}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="313"
+						y="104"
+						width="219"
+						height="16"
+						key="textField-42"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{foodAllergies}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="56"
+						y="104"
+						width="203"
+						height="16"
+						key="textField-43"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{drugAllergies}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="60"
+						y="84"
+						width="472"
+						height="16"
+						key="textField-44"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{address}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="271"
+						y="64"
+						width="261"
+						height="16"
+						key="textField-45"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{eatersIdNum}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="60"
+						y="64"
+						width="149"
+						height="16"
+						key="textField-46"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{eatersTel}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="378"
+						y="43"
+						width="154"
+						height="16"
+						key="textField-47"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{eatersAge}+"歲/"+$F{eatersSex}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="214"
+						y="44"
+						width="106"
+						height="16"
+						key="textField-48"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{eatersHight}+"公分/"+$F{eatersWeight}+"公斤"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="60"
+						y="44"
+						width="97"
+						height="16"
+						key="textField-49"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{eatersName}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="141"
+						width="535"
+						height="1"
+						key="line-63"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="259"
+						y="121"
+						width="31"
+						height="16"
+						key="staticText-59"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[生活史]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="2"
+						y="121"
+						width="30"
+						height="16"
+						key="staticText-60"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[疾病史]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="259"
+						y="104"
+						width="54"
+						height="16"
+						key="staticText-61"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[食物過敏史]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="2"
+						y="104"
+						width="54"
+						height="16"
+						key="staticText-62"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[藥物過敏史]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="19"
+						width="0"
+						height="180"
+						key="line-64"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="211"
+						y="162"
+						width="0"
+						height="20"
+						key="line-65"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="214"
+						y="163"
+						width="61"
+						height="16"
+						key="staticText-63"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Justified">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[電子郵件信箱]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="277"
+						y="162"
+						width="0"
+						height="20"
+						key="line-66"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="57"
+						y="161"
+						width="0"
+						height="20"
+						key="line-67"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="181"
+						width="535"
+						height="1"
+						key="line-68"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="163"
+						width="54"
+						height="16"
+						key="staticText-64"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[通報者電話
+]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="161"
+						width="535"
+						height="1"
+						key="line-69"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="143"
+						width="150"
+						height="16"
+						key="staticText-67"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[通報者姓名(同食用者此項免填)
+
+]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="321"
+						y="42"
+						width="0"
+						height="20"
+						key="line-70"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="324"
+						y="43"
+						width="49"
+						height="16"
+						key="staticText-68"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement textAlignment="Justified">
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[年齡/性別]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="377"
+						y="42"
+						width="0"
+						height="20"
+						key="line-71"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="214"
+						y="64"
+						width="52"
+						height="16"
+						key="staticText-69"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[身份證字號]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="268"
+						y="62"
+						width="0"
+						height="20"
+						key="line-72"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="211"
+						y="42"
+						width="0"
+						height="40"
+						key="line-73"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="163"
+						y="44"
+						width="46"
+						height="16"
+						key="staticText-70"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[身高/體重]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="160"
+						y="42"
+						width="0"
+						height="20"
+						key="line-74"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="57"
+						y="41"
+						width="0"
+						height="61"
+						key="line-75"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="102"
+						width="535"
+						height="1"
+						key="line-76"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="84"
+						width="54"
+						height="16"
+						key="staticText-71"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[食用者住址
+]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="82"
+						width="535"
+						height="1"
+						key="line-77"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="62"
+						width="535"
+						height="1"
+						key="line-78"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="2"
+						y="64"
+						width="54"
+						height="16"
+						key="staticText-72"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[聯絡電話]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="2"
+						y="44"
+						width="54"
+						height="16"
+						key="staticText-73"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="false" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[食用者姓名]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="2"
+						y="22"
+						width="530"
+						height="16"
+						key="staticText-74"/>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[1.通報者資料(必填-資料保密)]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="41"
+						width="535"
+						height="1"
+						key="line-79"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="19"
+						width="535"
+						height="1"
+						key="line-80"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="false" >
+				<staticText>
+					<reportElement
+						x="1"
+						y="-383"
+						width="534"
+						height="16"
+						key="staticText-98"/>
+					<box topBorder="1Point" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement>
+						<font fontName="標楷體" pdfFontName="kaiu.ttf" size="10" isBold="true" pdfEncoding ="Identity-H"/>
+					</textElement>
+				<text><![CDATA[4.通報內容]]></text>
+				</staticText>
+			</band>
+		</summary>
+</jasperReport>

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonUserRole" 
+    table="Common_UserRole"
+>
+    <meta attribute="implement-equals" inherit="false">true</meta>
+
+    <id
+        name="id"
+        type="java.lang.Integer"
+        column="Id"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="roleId"
+        type="java.lang.Integer" 
+        column="roleId" 
+        length="10"
+    >
+        <meta attribute="use-in-tostring">true</meta>
+    </property>
+    <property
+        name="editId"
+        type="java.lang.String"
+        column="editId"
+        length="50"
+    >
+        <meta attribute="use-in-tostring">true</meta>
+    </property>
+    <property
+        name="editDate"
+        type="java.lang.String"
+        column="editDate"
+        length="7"
+    >
+        <meta attribute="use-in-tostring">true</meta>
+    </property>
+    <property
+        name="editTime"
+        type="java.lang.String"
+        column="editTime"
+        length="6"
+    >
+        <meta attribute="use-in-tostring">true</meta>
+    </property>
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to CommonUser -->
+    <one-to-one
+        name="commonUser"
+        class="com.kangdainfo.common.model.bo.CommonUser"
+        outer-join="auto"
+        constrained="true"
+    />
+    <!-- bi-directional many-to-one association to CommonGroup -->
+    <many-to-one lazy="proxy"
+        name="commonGroup"
+        class="com.kangdainfo.common.model.bo.CommonGroup"
+        not-null="false"
+    >
+        <meta attribute="use-in-tostring">true</meta>
+        <column name="groupId" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

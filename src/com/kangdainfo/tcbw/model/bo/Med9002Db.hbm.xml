@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+   <class 
+    name="com.kangdainfo.tcbw.model.bo.Med9002Db" 
+    table="MED9002_DB"
+    lazy="false"
+   >
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+        <generator class="native">
+            <param name="sequence">MED9002_DB_SEQ</param>
+        </generator>
+    </id>
+     
+    <property
+        name="reportIssueno"
+        type="java.lang.Long"
+        column="reportIssueno"        
+    />    
+    <property
+        name="reporttype"
+        type="java.lang.String"
+        column="reporttype"
+        length="2"
+    />    
+    <property
+        name="handstatus"
+        type="java.lang.String"
+        column="handstatus"
+        length="2"
+    />    
+    <property
+        name="prehanddate"
+        type="java.lang.String"
+        column="prehanddate"
+        length="7"
+    />
+    <property
+        name="handdate"
+        type="java.lang.String"
+        column="handdate"
+        length="7"
+    />
+    
+    <property
+        name="monitorsdate"
+        type="java.lang.String"
+        column="monitorsdate"
+        length="7"
+    />
+    <property
+        name="monitoredate"
+        type="java.lang.String"
+        column="monitoredate"
+        length="7"
+    />
+    <property
+        name="reportreceiveno"
+        type="java.lang.String"
+        column="reportreceiveno"
+        length="20"
+    />
+    <property
+        name="reportsummary"
+        type="java.lang.String"
+        column="reportsummary"
+        length="50"
+    />
+    <property
+        name="inDefCaseNum"
+        type="java.lang.Long"
+        column="inDefCaseNum"
+    />
+    <property
+        name="inUnDefCaseNum"
+        type="java.lang.Long"
+        column="inUnDefCaseNum"
+    />
+    <property
+        name="abDefCaseNum"
+        type="java.lang.Long"
+        column="abDefCaseNum"
+    />
+    <property
+        name="abUnDefCaseNum"
+        type="java.lang.Long"
+        column="abUnDefCaseNum"
+    />
+    <property
+        name="scienceNum"
+        type="java.lang.Long"
+        column="scienceNum"
+    />
+    <property
+        name="reportremark"
+        type="java.lang.String"
+        column="reportremark"
+        length="50"
+    />
+    <property
+        name="reportupdatedate"
+        type="java.lang.String"
+        column="reportupdatedate"
+        length="7"
+    />
+    <property
+        name="reportupdateman"
+        type="java.lang.String"
+        column="reportupdateman"
+        length="20"
+    />
+    <property
+        name="assessdate"
+        type="java.lang.String"
+        column="assessdate"
+        length="7"
+    />
+    <property
+        name="assesssummary"
+        type="java.lang.String"
+        column="assesssummary"
+        length="50"
+    />
+    <property
+        name="assessresult"
+        type="java.lang.String"
+        column="assessresult"
+        length="2"
+    />
+    
+    <property
+        name="assessresultdesc"
+        type="java.lang.String"
+        column="assessresultdesc"
+        length="100"
+    />
+    <property
+        name="assessremark"
+        type="java.lang.String"
+        column="assessremark"
+        length="100"
+    />    
+    
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+    <set name="med9003Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med9002_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med9003Db"/>
+	</set>
+    <many-to-one name="med9001Db" class="com.kangdainfo.tcbw.model.bo.Med9001Db" >
+            <column name="med9001_id" not-null="true"  />
+    </many-to-one>
+</class>
+</hibernate-mapping>

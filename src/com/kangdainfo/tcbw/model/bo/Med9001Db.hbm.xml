@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+   <class 
+    name="com.kangdainfo.tcbw.model.bo.Med9001Db" 
+    table="MED9001_DB"
+    lazy="false"
+   >
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+        <generator class="native">
+            <param name="sequence">MED9001_DB_SEQ</param>
+        </generator>
+    </id>	
+    
+    <property
+        name="applNo"
+        type="java.lang.String"
+        column="applNo"
+        length="11"
+    />
+      
+    <property
+        name="monitorNo"
+        type="java.lang.String"
+        column="monitorNo"
+        length="20"
+    /> 
+    
+     <property
+        name="permitKey"
+        type="java.lang.String"
+        column="permitKey"
+        length="2"
+    /> 
+    <property
+        name="permitNo"
+        type="java.lang.String"
+        column="permitNo"
+        length="14"
+    /> 
+
+    <property
+        name="chProduct"
+        type="java.lang.String"
+        column="chProduct"
+        length="100"
+    /> 
+    
+    <property
+        name="enProduct"
+        type="java.lang.String"
+        column="enProduct"
+        length="100"
+    /> 
+
+ 
+    <property
+        name="medapprovedate"
+        type="java.lang.String"
+        column="medapprovedate"
+        length="7"
+    /> 
+
+
+    <property
+        name="medEffectiveDate"
+        type="java.lang.String"
+        column="medEffectiveDate"
+        length="7"
+    />
+    
+    <property
+        name="applicationID"
+        type="java.lang.String"
+        column="applicationID"
+        length="20"
+    /> 
+    
+    <property
+        name="applicationName"
+        type="java.lang.String"
+        column="applicationName"
+        length="100"
+    /> 
+    
+    <property
+        name="manufactorName"
+        type="java.lang.String"
+        column="manufactorName"
+        length="300"
+    />
+    <property
+        name="manufactorCountry"
+        type="java.lang.String"
+        column="manufactorCountry"
+        length="50"
+    />
+    <property
+        name="medclass"
+        type="java.lang.String"
+        column="medclass"
+        length="1"
+    /> 
+
+    <property
+        name="medMainCategory"
+        type="java.lang.String"
+        column="medMainCategory"
+        length="10"
+    /> 
+    
+    <property
+        name="medSecCategory"
+        type="java.lang.String"
+        column="medSecCategory"
+        length="10"
+    /> 
+
+    <property
+        name="medModel"
+        type="java.lang.String"
+        column="medModel"
+        length="30"
+    /> 
+
+    <property
+        name="medeffect"
+        type="java.lang.String"
+        column="medeffect"
+        length="30"
+    /> 
+    
+    <property
+        name="monitorSDate"
+        type="java.lang.String"
+        column="monitorSDate"
+        length="7"
+    /> 
+    
+    <property
+        name="monitorEDate"
+        type="java.lang.String"
+        column="monitorEDate"
+        length="7"
+    /> 
+    
+    <property
+        name="reportIssuenum"
+        type="java.lang.Long"
+        column="reportIssuenum"       
+    /> 
+ 
+    <property
+        name="intervalmonth"
+        type="java.lang.Long"
+        column="intervalmonth"
+    /> 
+
+    <property
+        name="monitorremark"
+        type="java.lang.String"
+        column="monitorremark"
+        length="100"
+    /> 
+
+    <property
+        name="status"
+        type="java.lang.String"
+        column="status"
+        length="2"
+    />  
+    
+    <property
+        name="bulletinDate"
+        type="java.lang.String"
+        column="bulletinDate"
+        length="7"
+    /> 
+     <property
+        name="scheduledDate"
+        type="java.lang.String"
+        column="scheduledDate"
+        length="7"
+    /> 
+     <property
+        name="determineDate"
+        type="java.lang.String"
+        column="determineDate"
+        length="7"
+    /> 
+    <property
+        name="assessPerson"
+        type="java.lang.String"
+        column="assessPerson"
+        length="50"
+    /> 
+    
+    <property
+        name="closingDate"
+        type="java.lang.String"
+        column="closingDate"
+        length="7"
+    /> 
+    
+    <property
+        name="trans"
+        type="java.lang.String"
+        column="trans"
+        length="2"
+    />
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+
+    <set name="med9002Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med9001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med9002Db"/>
+	</set>
+ 	<set name="med9003Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="Med9001DbId" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med9003Db" />
+	</set>
+</class>
+</hibernate-mapping>

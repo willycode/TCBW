@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonConfig" 
+    table="COMMON_CONFIG"
+    lazy="false"
+>
+    <id
+        name="id"
+        type="java.lang.String"
+        column="id"
+        length="50"
+    >    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="field1"
+        type="java.lang.String"
+        column="field1"
+        length="200"
+    />
+    <property
+        name="field2"
+        type="java.lang.String"
+        column="field2"
+        length="200"
+    />
+    <property
+        name="field3"
+        type="java.lang.String"
+        column="field3"
+        length="200"
+    />
+    <property
+        name="field4"
+        type="java.lang.String"
+        column="field4"
+        length="200"
+    />
+    <property
+        name="field5"
+        type="java.lang.String"
+        column="field5"
+        length="200"
+    />
+    <property
+        name="field6"
+        type="java.lang.String"
+        column="field6"
+        length="200"
+    />
+    <property
+        name="field7"
+        type="java.lang.String"
+        column="field7"
+        length="200"
+    />
+    <property
+        name="field8"
+        type="java.lang.String"
+        column="field8"
+        length="200"
+    />
+    <property
+        name="field9"
+        type="java.lang.String"
+        column="field9"
+        length="200"
+    />
+    <property
+        name="field10"
+        type="java.lang.String"
+        column="field10"
+        length="200"
+    />
+    <property
+        name="field11"
+        type="java.lang.String"
+        column="field11"
+        length="200"
+    />
+    <property
+        name="field12"
+        type="java.lang.String"
+        column="field12"
+        length="200"
+    />
+    <property
+        name="userId"
+        type="java.lang.String"
+        column="USER_ID"
+        length="50"
+    />
+    <property
+        name="modDate"
+        type="java.lang.String"
+        column="MOD_DATE"
+        length="7"
+    />
+    <property
+        name="modTime"
+        type="java.lang.String"
+        column="MOD_TIME"
+        length="6"
+    />
+</class>
+</hibernate-mapping>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Hfr0007Db" table="HFR0007_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">HFR0007_DB_SEQ</param>
+            </generator>
+        </id>
+        
+        <many-to-one
+	        name="hfr0001Db"
+	        class="com.kangdainfo.tcbw.model.bo.Hfr0001Db"
+	        not-null="true"
+	    >
+	        <column name="hfr0001_id" />
+	    </many-to-one>
+        <property name="committeeMeeting" type="java.lang.String">
+            <column name="committeeMeeting" length="10" />
+        </property>
+        <property name="committeeDate" type="java.lang.String">
+            <column name="committeeDate" length="7" />
+        </property>
+        <property name="recordDate" type="java.lang.String">
+            <column name="recordDate" length="7" />
+        </property>
+        <property name="caseBackDate" type="java.lang.String">
+            <column name="caseBackDate" length="7" />
+        </property>
+        <property name="unExpectedClassify" type="java.lang.String">
+            <column name="unExpectedClassify" length="10" />
+        </property>
+        <property name="unExpectedReason" type="java.lang.String">
+            <column name="unExpectedReason" length="20" />
+        </property>
+        <property name="evidentiary" type="java.lang.String">
+            <column name="evidentiary" length="10" />
+        </property>
+        <property name="thiSeverity" type="java.lang.String">
+            <column name="thiSeverity" length="10" />
+        </property>
+        <property name="administrativeLevel" type="java.lang.String">
+            <column name="administrativeLevel" length="10" />
+        </property>
+        <property name="reEvaluateResult" type="java.lang.String">
+            <column name="reEvaluateResult" length="1" />
+        </property>
+        <property name="isClosed" type="java.lang.String">
+            <column name="isClosed" length="1" />
+        </property>
+        <property name="thiExplain" type="java.lang.String">
+            <column name="thiExplain" length="100" />
+        </property>
+        <property name="unThiExplain" type="java.lang.String">
+            <column name="unThiExplain" length="100" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+    </class>
+</hibernate-mapping>

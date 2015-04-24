@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${dataSource.driverClassName}" />
+		<property name="jdbcUrl" value="${dataSource.url}" />
+		<property name="user" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
+		<property name="initialPoolSize" value="${hibernate.c3p0.initialPoolSize}" />
+		<property name="minPoolSize" value="${hibernate.c3p0.minPoolSize}" />
+		<property name="maxPoolSize" value="${hibernate.c3p0.maxPoolSize}" />
+		<property name="acquireIncrement" value="${hibernate.c3p0.acquireIncrement}" />
+		<property name="maxIdleTime" value="${hibernate.c3p0.maxIdleTime}" />
+		<property name="maxStatements" value="${hibernate.c3p0.maxStatements}" />
+		<property name="numHelperThreads" value="${hibernate.c3p0.numHelperThreads}" />
+		<property name="autoCommitOnClose" value="${hibernate.c3p0.autoCommitOnClose}" />
+	</bean>
+
+	<!-- 
+	<bean id="dataSource"
+		class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver" value="${dataSource.driverClassName}" />
+		<property name="driverUrl" value="${dataSource.url}" />
+		<property name="user" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
+		<property name="alias" value="KDCommon" />
+		<property name="houseKeepingSleepTime" value="300000" />
+		<property name="minimumConnectionCount" value="2" />
+		<property name="maximumConnectionCount" value="120" />
+	</bean>
+		
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${dataSource.driverClassName}" />
+		<property name="url" value="${dataSource.url}" />
+		<property name="username" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
+		<property name="validationQuery" value="${dataSource.validationQuery}" />
+		<property name="poolPreparedStatements" value="${dataSource.poolPreparedStatements}" />
+		<property name="maxActive" value="${dataSource.maxActive}" />
+		<property name="maxIdle" value="${dataSource.maxIdle}" />
+	</bean>	
+		
+	-->
+
+</beans>

@@ -1,0 +1,65 @@
+.toolbar_default_insert {    
+	background-color: transparent;
+    border: 0px; width: 67;	height: 26;
+    background-image:url(../images/btn_add.gif)
+}
+
+.toolbar_default_update {    
+	background-color: transparent;
+    border: 0px; width: 67;	height: 26; 
+    background-image:url(../images/btn_mod.gif)
+}
+
+.toolbar_default_delete {    
+	background-color: transparent;
+    border: 0px; width: 67;	height: 26;
+    background-image:url(../images/btn_del.gif)
+}
+
+.toolbar_default_confirm {    
+	background-color: transparent;
+    border: 0px; width: 67;	height: 26;
+    background-image:url(../images/btn_cer.gif)
+}
+
+.toolbar_default_cancel {    
+	background-color: transparent;
+    border: 0px; width: 67;	height: 26;
+    background-image:url(../images/btn_add.gif)
+}
+
+.toolbar_default_query {    
+	background-color: transparent;
+    border: 0px; width: 67;	height: 26;
+    background-image:url(../images/btn_sea.gif)
+}
+
+.toolbar_default_save {    
+	background-color: transparent;
+    border: 0px; width: 67;	height: 26;
+    background-image:url(../images/btn_sto.gif)
+}
+
+.toolbar_default_listshow {    
+	background-color: transparent;
+	color:#FCFBF8;
+    border: 0px; width: 100;	height: 26;
+    background-image:url(../images/btn_pri03.gif)
+}
+
+.toolbar_default_listhide {
+	background-color: transparent;
+	color:#FCFBF8;
+    border: 0px; width: 100;	height: 26;
+    background-image:url(../images/btn_pri02.gif)
+}
+
+.toolbar_default_listprint {    
+	background-color: transparent;
+    border: 0px; width: 100;	height: 26;
+    background-image:url(../images/btn_pri04.gif.gif)
+}
+
+
+
+

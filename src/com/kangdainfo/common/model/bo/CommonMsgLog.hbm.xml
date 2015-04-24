@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonMsgLog" 
+    table="COMMON_MSG_LOG"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+    
+        <generator class="native">
+            <param name="sequence">COMMON_MSG_LOG_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="userId"
+        type="java.lang.String"
+        column="userId"
+        length="50"
+    />
+    <property
+        name="logDate"
+        type="java.lang.String"
+        column="logDate"
+        length="7"
+    />
+    <property
+        name="logTime"
+        type="java.lang.String"
+        column="logTime"
+        length="6"
+    />
+    <property
+        name="isSlide"
+        type="java.lang.String"
+        column="isSlide"
+        length="1"
+    />
+    <property
+        name="isRead"
+        type="java.lang.String"
+        column="isRead"
+        length="1"
+    />    
+    <!-- Associations -->
+  
+    <many-to-one
+        name="commonMsg"
+        class="com.kangdainfo.common.model.bo.CommonMsg"
+        not-null="true"
+    >
+        <column name="msgId" />
+    </many-to-one>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+   
+	<bean id="coninDao" class="com.kangdainfo.tcbw.model.dao.hibernate.ConinDaoImpl"/>  
+	<bean id="hfrexDao" class="com.kangdainfo.tcbw.model.dao.hibernate.HfrexDaoImpl"/>  
+   	<bean id="hfrinDao" class="com.kangdainfo.tcbw.model.dao.hibernate.HfrinDaoImpl"/>
+   	
+   	<bean id="medex1Dao" class="com.kangdainfo.tcbw.model.dao.hibernate.Medex1DaoImpl"/> 
+   	<bean id="medex2Dao" class="com.kangdainfo.tcbw.model.dao.hibernate.Medex2DaoImpl"/> 
+   	
+   	<bean id="medin1Dao" class="com.kangdainfo.tcbw.model.dao.hibernate.Medin1DaoImpl"/> 
+   	<bean id="medin2Dao" class="com.kangdainfo.tcbw.model.dao.hibernate.Medin2DaoImpl"/> 
+   	
+   	<bean id="drgexDao" class="com.kangdainfo.tcbw.model.dao.hibernate.DrgexDaoImpl"/>
+   	<bean id="drginDao" class="com.kangdainfo.tcbw.model.dao.hibernate.DrginDaoImpl"/>  
+	<bean id="cosexDao" class="com.kangdainfo.tcbw.model.dao.hibernate.CosexDaoImpl"/>
+	<bean id="cosinDao" class="com.kangdainfo.tcbw.model.dao.hibernate.CosinDaoImpl"/>
+	
+	<bean id="sdrgDao" class="com.kangdainfo.tcbw.model.dao.hibernate.SdrgDaoImpl"/>
+	<bean id="pmedDao" class="com.kangdainfo.tcbw.model.dao.hibernate.PmedDaoImpl"/>
+		   	  
+	<bean id="nativeSqlQuery" class="com.kangdainfo.tcbw.model.dao.hibernate.NativeSqlQueryImpl">
+          <property name="sessionFactory">
+                 <ref bean="sessionFactory"/>
+          </property>
+    </bean>   	  
+	   	  
+    <!--================== Service ==================-->    
+    <bean id="tcbwService" class="com.kangdainfo.tcbw.model.service.impl.TCBWServiceImpl">
+    	<property name="coninDao">
+    		<ref bean="coninDao" />
+    	</property>
+    	<property name="hfrexDao">
+    		<ref bean="hfrexDao" />
+    	</property>
+    	<property name="hfrinDao">
+    		<ref bean="hfrinDao" />
+    	</property>
+    	<property name="medex1Dao">
+    		<ref bean="medex1Dao" />
+    	</property>
+    	<property name="medex2Dao">
+    		<ref bean="medex2Dao" />
+    	</property>
+    	<property name="medin1Dao">
+    		<ref bean="medin1Dao" />
+    	</property>
+    	<property name="medin2Dao">
+    		<ref bean="medin2Dao" />
+    	</property>
+    	<property name="drgexDao">
+    		<ref bean="drgexDao" />
+    	</property>
+    	<property name="drginDao">
+    		<ref bean="drginDao" />
+    	</property>
+    	<property name="cosexDao">
+    		<ref bean="cosexDao" />
+    	</property>
+    	<property name="cosinDao">
+    		<ref bean="cosinDao" />
+    	</property>
+    	<property name="sdrgDao">
+    		<ref bean="sdrgDao" />
+    	</property>
+    	<property name="pmedDao">
+    		<ref bean="pmedDao" />
+    	</property>
+    	<property name="nativeSqlQuery">
+    		<ref bean="nativeSqlQuery" />
+    	</property>	
+    </bean>	
+
+</beans>

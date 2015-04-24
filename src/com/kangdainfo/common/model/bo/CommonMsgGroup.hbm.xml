@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonMsgGroup" 
+    table="COMMON_MSG_GROUP"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+    
+        <generator class="native">
+            <param name="sequence">COMMON_MSG_GROUP_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="userId"
+        type="int"
+        column="userId"
+        length="10"
+    />
+    <property
+        name="deptId"
+        type="int"
+        column="deptId"
+        length="10"
+    />
+    <property
+        name="groupId"
+        type="int"
+        column="groupId"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to CommonMsg -->
+    <many-to-one
+        name="commonMsg"
+        class="com.kangdainfo.common.model.bo.CommonMsg"
+        not-null="true"
+    >
+        <column name="msgId" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

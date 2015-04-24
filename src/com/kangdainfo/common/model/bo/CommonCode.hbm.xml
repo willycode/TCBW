@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonCode" 
+    table="COMMON_CODE"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Integer"
+        column="id"
+    >
+    
+        <generator class="native">
+        	<param name="sequence">COMMON_CODE_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="codeId"
+        type="java.lang.String"
+        column="codeId"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="codeName"
+        type="java.lang.String"
+        column="codeName"
+        not-null="true"
+        length="500"
+    />
+    <property
+        name="codeShortName"
+        type="java.lang.String"
+        column="codeShortName"
+        length="250"
+    />    
+    <property
+        name="codeEngName"
+        type="java.lang.String"
+        column="codeEngName"
+        length="500"
+    />    
+    <property
+        name="issueDate"
+        type="java.lang.String"
+        column="issueDate"
+        length="7"
+    />    
+    <property
+        name="endDate"
+        type="java.lang.String"
+        column="endDate"
+        length="7"
+    />    
+    <property
+        name="codeCon1"
+        type="java.lang.String"
+        column="codeCon1"
+        length="1000"
+    />
+    <property
+        name="codeCon2"
+        type="java.lang.String"
+        column="codeCon2"
+        length="1000"
+    />
+    <property
+        name="codeCon3"
+        type="java.lang.String"
+        column="codeCon3"
+        length="1000"
+    />
+    <property
+        name="codeMemo"
+        type="java.lang.String"
+        column="codeMemo"
+        length="2000"
+    />
+    
+     <property
+        name="isStop"
+        type="java.lang.String"
+        column="isStop"
+        length="1000"
+    />
+     <property
+        name="isDrg"
+        type="java.lang.String"
+        column="ISDRG"
+        length="1"
+    />
+     <property
+        name="isMed"
+        type="java.lang.String"
+        column="ISMED"
+        length="1"
+    />
+     <property
+        name="isHfr"
+        type="java.lang.String"
+        column="ISHFR"
+        length="1"
+    />
+     <property
+        name="isCos"
+        type="java.lang.String"
+        column="ISCOS"
+        length="1"
+    />
+    
+    <property
+        name="editId"
+        type="java.lang.String"
+        column="editId"
+        length="50"
+    />
+    <property
+        name="editDate"
+        type="java.lang.String"
+        column="editDate"
+        length="7"
+    />
+    <property
+        name="editTime"
+        type="java.lang.String"
+        column="editTime"
+        length="6"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to CommonCodekind -->
+    <many-to-one
+        name="commonCodeKind"
+        class="com.kangdainfo.common.model.bo.CommonCodeKind"
+        not-null="true"
+    >
+        <column name="codeKindId" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

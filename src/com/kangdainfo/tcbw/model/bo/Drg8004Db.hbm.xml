@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Drg8004Db" table="DRG8004_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">DRG8004_DB_SEQ</param>
+            </generator>
+        </id>   
+        <property name="status" type="java.lang.String">
+            <column name="status" length="2" />
+        </property>            
+    	<property name="assessextendate" type="java.lang.String">
+            <column name="assessextendate" length="7" />
+        </property>
+         <property name="assessdate" type="java.lang.String">
+            <column name="assessdate" length="7" />
+        </property>
+         <property name="assessrecyclereason" type="java.lang.String">
+            <column name="assessrecyclereason" length="200" />
+        </property>
+         <property name="assesssurveyresult" type="java.lang.String">
+            <column name="assesssurveyresult" length="100" />
+        </property>
+         <property name="assesssurveyreport" type="java.lang.String">
+            <column name="assesssurveyreport" length="100" />
+        </property>
+        <property name="assessprecaution" type="java.lang.String">
+            <column name="assessprecaution" length="100" />
+        </property>
+        <property name="assessdealWith" type="java.lang.String">
+            <column name="assessdealWith" length="2" />
+        </property>
+        <property name="assessresult" type="java.lang.String">
+            <column name="assessresult" length="50" />
+        </property>
+        <property name="anadate" type="java.lang.String">
+            <column name="anadate" length="7" />
+        </property>
+        <property name="anamedicineType" type="java.lang.String">
+            <column name="anamedicineType" length="2" />
+        </property>
+        <property name="anaproduceType" type="java.lang.String">
+            <column name="anaproduceType" length="2" />
+        </property>
+        <property name="analotType" type="java.lang.String">
+            <column name="analotType" length="2" />
+        </property>
+        <property name="anarecyclereason" type="java.lang.String">
+            <column name="anarecyclereason" length="2" />
+        </property>
+        <property name="anarecyclersdesc" type="java.lang.String">
+            <column name="anarecyclersdesc" length="200" />
+        </property>
+        <property name="anasurvey" type="java.lang.String">
+            <column name="anasurvey" length="50" />
+        </property>
+        <property name="anasurveyOther" type="java.lang.String">
+            <column name="anasurveyOther" length="50" />
+        </property>
+        <property name="anaprecaution" type="java.lang.String">
+            <column name="anaprecaution" length="50" />
+        </property>
+        <property name="anaprecautionOther" type="java.lang.String">
+            <column name="anaprecautionOther" length="50" />
+        </property>
+        
+        <property name="receiveSystem" type="java.lang.String">
+            <column name="RECEIVESYSTEM" length="50" />
+        </property>
+        <property name="receiveDate" type="java.lang.String">
+            <column name="RECEIVEDATE" length="7" />
+        </property>
+        <property name="receiveTime" type="java.lang.String">
+            <column name="RECEIVETIME" length="6" />            
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="CREATOR" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="CREATEDATE" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="CREATETIME" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="MODIFIER" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="MODIFYDATE" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="MODIFYTIME" length="6" />            
+        </property>        
+        
+        <many-to-one name="drg8001Db" class="com.kangdainfo.tcbw.model.bo.Drg8001Db" >
+            <column name="drg8001_id" not-null="true"/>
+    	</many-to-one>
+    </class>
+</hibernate-mapping>

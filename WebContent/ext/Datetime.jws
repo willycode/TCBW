@@ -1,0 +1,22 @@
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class Datetime {
+
+    public  String getYYYMMDD() {
+        StringBuffer sb = new StringBuffer();
+        Calendar cal = Calendar.getInstance();
+        int y = cal.get(Calendar.YEAR) - 1911;
+        int m = cal.get(Calendar.MONTH) + 1;
+        int d = cal.get(Calendar.DATE);        
+        if (y<=99){ sb.append("0"); }
+        sb.append(Integer.toString(y));
+        if (m<=9){ sb.append("0"); }
+        sb.append(Integer.toString(m));
+        if (d<=9){ sb.append("0"); }
+        sb.append(Integer.toString(d));
+        return sb.toString();
+    }
+
+}

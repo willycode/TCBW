@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--  ==== 0 55 23 ? * *
+"cronExpression"屬性的指定，指定的格式是至少六個時間元素，最多七個時間元素，例如上面的指定是每天的19時要執行Job一次，
+"cronExpression"屬性指定的格式如下：
+秒（0-59） 
+分（0-59） 
+小時（0-23） 
+每月第幾天（1-31） 
+月（1-12或JAN-DEC） 
+每星期第幾天（1-7或SUN-SAT） 
+年（1970-2099） 
+
+其中「每月第幾天」與「每星期第幾天是互斥」的，兩個只能設定一個，不設定的以 ? 符號撰寫，如果有好幾個時間點，可以使用 , 
+符號，例如：「0 0 10,12,14 * * ?」表示每天的10時、12時、14時要執行Job；對於連續的時間可以使用 - 符號，
+例如「0 0 10,12,14 1-15 * ?」表示每月的1到15日每10時、12時、15時要執行Job，時間格式中的年指定可有可無，
+例如：「0 0 10,12,14 ? * MON 2006」表示2006年每星期一的10時、12時、14時要執行Job。
+-->	
+
+	<!--================== 藥品不良品廠商回覆稽催作業  Service ==================-->
+    <bean id="drg0101ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Drg0101ScheduleDaoImpl">
+    	<property name="scheduleName" value="藥品不良品廠商回覆稽催作業" />  	
+    </bean>    
+	<bean id="drg0101ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="drg0101ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="drg0101ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="drg0101ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 0 1 ? * *</value>
+		</property>
+	</bean>
+	
+    <!--================== 化粧品不良品廠商回覆稽催作業  Service ==================-->
+    <bean id="cos0201ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Cos0201ScheduleDaoImpl">
+    	<property name="scheduleName" value="化粧品不良品廠商回覆稽催作業" />  	
+    </bean>    
+	<bean id="cos0201ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="cos0201ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="cos0201ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="cos0201ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 10 1 ? * *</value>
+		</property>
+	</bean>
+	
+	<!--================== 化粧品不良反應廠商回覆稽催作業  Service ==================-->
+    <bean id="cos0301ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Cos0301ScheduleDaoImpl">
+    	<property name="scheduleName" value="化粧品不良反應廠商回覆稽催作業" />  	
+    </bean>    
+	<bean id="cos0301ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="cos0301ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="cos0301ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="cos0301ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 20 1 ? * *</value>
+		</property>
+	</bean>
+	
+	<!--================== 醫療器材不良反應案件評估稽催作業  Service ==================-->
+    <bean id="med0101ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Med0101ScheduleDaoImpl">
+    	<property name="scheduleName" value="醫療器材不良反應案件評估稽催作業" />  	
+    </bean>    
+	<bean id="med0101ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="med0101ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="med0101ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="med0101ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 30 1 ? * *</value>
+		</property>
+	</bean>
+	
+    <!--================== 醫療器材不良品案件初評稽催作業  Service ==================-->
+    <bean id="med0201ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Med0201ScheduleDaoImpl">
+    	<property name="scheduleName" value="醫療器材不良品案件初評稽催作業" />  	
+    </bean>    
+	<bean id="med0201ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="med0201ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="med0201ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="med0201ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 40 1 ? * *</value>
+		</property>
+	</bean>	
+	
+	<!--================== 醫療器材不良品案件複評稽催作業  Service ==================-->
+    <bean id="med0202ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Med0202ScheduleDaoImpl">
+    	<property name="scheduleName" value="醫療器材不良品案件複評稽催作業" />  	
+    </bean>    
+	<bean id="med0202ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="med0202ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="med0202ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="med0202ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 50 1 ? * *</value>
+		</property>
+	</bean>
+	
+	<!--================== 醫療器材不良品廠商回覆稽催作業  Service ==================-->
+    <bean id="med0203ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Med0203ScheduleDaoImpl">
+    	<property name="scheduleName" value="醫療器材不良品廠商回覆稽催作業" />  	
+    </bean>    
+	<bean id="med0203ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="med0203ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="med0203ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="med0203ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 0 2 ? * *</value>
+		</property>
+	</bean>
+	
+    <!--================== 化粧品不良品轉知TFDA作業  Service ==================-->
+    <bean id="cos0202ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Cos0202ScheduleDaoImpl">
+    	<property name="scheduleName" value="化粧品不良品轉知TFDA作業" />  	
+    </bean>    
+	<bean id="cos0202ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="cos0202ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="cos0202ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="cos0202ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 10 2 ? * *</value>
+		</property>
+	</bean>
+	
+	<!--================== 藥品通報案件統計作業  Service ==================-->
+    <bean id="drg0102ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Drg0102ScheduleDaoImpl">
+    	<property name="scheduleName" value="藥品通報案件統計作業" />  	
+    </bean>    
+	<bean id="drg0102ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="drg0102ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="drg0102ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="drg0102ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 30 2 ? * *</value>
+		</property>
+	</bean>
+	
+	<!--================== 醫療器材定期安全監視表報告繳交通知(到期前)作業  Service ==================-->
+    <bean id="med0501ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Med0501ScheduleDaoImpl">
+    	<property name="scheduleName" value="醫療器材定期安全監視表報告繳交通知(到期前)作業" />  	
+    </bean>    
+	<bean id="med0501ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="med0501ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="med0501ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="med0501ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 15 2 ? * *</value>
+		</property>
+	</bean>
+	
+	<!--================== 醫療器材定期安全監視表報告繳交通知(到期當日)作業  Service ==================-->
+    <bean id="med0502ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Med0502ScheduleDaoImpl">
+    	<property name="scheduleName" value="醫療器材定期安全監視表報告繳交通知(到期當日)作業" />  	
+    </bean>    
+	<bean id="med0502ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="med0502ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="med0502ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="med0502ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 20 2 ? * *</value>
+		</property>
+	</bean>
+
+	<!--================== 醫療器材定期安全監視表報告繳交通知(逾期後)作業  Service ==================-->
+    <bean id="med0503ScheduleDao" class="com.kangdainfo.tcbw.model.dao.hibernate.Med0503ScheduleDaoImpl">
+    	<property name="scheduleName" value="醫療器材定期安全監視表報告繳交通知(逾期後)作業" />  	
+    </bean>    
+	<bean id="med0503ScheduleRefreshMethodJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="med0503ScheduleDao"/>
+		</property>
+		<property name="targetMethod">
+			<value>parseScheduleAndSaveLog</value>
+		</property>
+	</bean>	
+	<bean id="med0503ScheduleRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="med0503ScheduleRefreshMethodJob"/>
+		</property>
+		<property name="cronExpression">
+			<value>0 25 2 ? * *</value>
+		</property>
+	</bean>
+
+    <!--================== Service ==================-->
+    <bean id="scheduleService" class="com.kangdainfo.tcbw.model.service.impl.ScheduleServiceImpl">
+    	<property name="drg0101ScheduleDao">
+    		<ref bean="drg0101ScheduleDao" />
+    	</property>
+    	<property name="cos0201ScheduleDao">
+    		<ref bean="cos0201ScheduleDao" />
+    	</property>
+    	<property name="cos0301ScheduleDao">
+    		<ref bean="cos0301ScheduleDao" />
+    	</property>
+    	<property name="med0101ScheduleDao">
+    		<ref bean="med0101ScheduleDao" />
+    	</property>
+    	<property name="med0201ScheduleDao">
+    		<ref bean="med0201ScheduleDao" />
+    	</property>
+    	<property name="med0202ScheduleDao">
+    		<ref bean="med0202ScheduleDao" />
+    	</property>
+    	<property name="med0203ScheduleDao">
+    		<ref bean="med0203ScheduleDao" />
+    	</property>
+    	<property name="cos0202ScheduleDao">
+    		<ref bean="cos0202ScheduleDao" />
+    	</property>
+    	<property name="drg0102ScheduleDao">
+    		<ref bean="drg0102ScheduleDao" />
+    	</property> 
+    	<property name="med0501ScheduleDao">
+    		<ref bean="med0501ScheduleDao" />
+    	</property>
+    	<property name="med0502ScheduleDao">
+    		<ref bean="med0502ScheduleDao" />
+    	</property>
+    	<property name="med0503ScheduleDao">
+    		<ref bean="med0503ScheduleDao" />
+    	</property>  	
+    </bean> 
+	<!--================== scheduleRefreshScheduler ==================-->
+	<bean id="scheduleRefreshScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="drg0101ScheduleRefreshTrigger"/>
+				<ref bean="cos0201ScheduleRefreshTrigger"/>
+				<ref bean="cos0301ScheduleRefreshTrigger"/>
+				<ref bean="med0101ScheduleRefreshTrigger"/>
+				<ref bean="med0201ScheduleRefreshTrigger"/>
+				<ref bean="med0202ScheduleRefreshTrigger"/>
+				<ref bean="med0203ScheduleRefreshTrigger"/>
+				<ref bean="cos0202ScheduleRefreshTrigger"/>
+				<ref bean="drg0102ScheduleRefreshTrigger"/>
+				<ref bean="med0501ScheduleRefreshTrigger"/>
+				<ref bean="med0502ScheduleRefreshTrigger"/>
+				<ref bean="med0503ScheduleRefreshTrigger"/>
+			</list>
+		</property>
+	</bean>   	
+</beans>

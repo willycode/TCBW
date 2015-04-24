@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonUser" 
+    table="COMMON_USER"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Integer"
+        column="id"
+    >
+    
+        <generator class="native">
+        	<param name="sequence">COMMON_USER_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="userId"
+        type="java.lang.String"
+        column="userId"
+        not-null="true"
+        unique="true"
+        length="50"
+    />
+    <property
+        name="userSsn"
+        type="java.lang.String"
+        column="userSSN"
+        length="20"
+    />
+    <property
+        name="userPwd"
+        type="java.lang.String"
+        column="userPWD"
+        length="100"
+    />
+    <property
+        name="userPwdModDt"
+        type="java.lang.String"
+        column="userPwdModDt"
+        length="20"
+    />    
+    <property
+        name="userName"
+        type="java.lang.String"
+        column="userName"
+        length="50"
+    />
+    <property
+        name="roleId"
+        type="java.lang.Integer"
+        column="roleId"
+        length="10"
+    />    
+    <property
+        name="userTelArea"
+        type="java.lang.String"
+        column="userTelArea"
+        length="2"
+    />
+    <property
+        name="userTelExt"
+        type="java.lang.String"
+        column="userTelExt"
+        length="3"
+    />
+    <property
+        name="userTel"
+        type="java.lang.String"
+        column="userTel"
+        length="50"
+    />
+    <property
+        name="userCounty"
+        type="java.lang.String"
+        column="userCounty"
+        length="2"
+    />
+    <property
+        name="userZipCode"
+        type="java.lang.String"
+        column="userZipCode"
+        length="5"
+    />
+    <property
+        name="userAddr"
+        type="java.lang.String"
+        column="userAddr"
+        length="50"
+    />
+    <property
+        name="userMobile"
+        type="java.lang.String"
+        column="userMobile"
+        length="50"
+    />
+    <property
+        name="userFaxArea"
+        type="java.lang.String"
+        column="userFaxArea"
+        length="2"
+    />
+    <property
+        name="userFax"
+        type="java.lang.String"
+        column="userFax"
+        length="50"
+    />
+    <property
+        name="userEmail"
+        type="java.lang.String"
+        column="userEmail"
+        length="250"
+    />
+    <property
+        name="takeJobDate"
+        type="java.lang.String"
+        column="takeJobDate"
+        length="7"
+    />
+    <property
+        name="isStop"
+        type="java.lang.String"
+        column="isStop"
+        length="1"
+    />
+    <property
+        name="isDeptManager"
+        type="java.lang.String"
+        column="isDeptManager"
+        length="1"
+    />
+    <property
+        name="isAdministrator"
+        type="java.lang.String"
+        column="isAdministrator"
+        length="1"
+    />
+    <property
+        name="subSystem"
+        type="java.lang.String"
+        column="subSystem"
+        length="20"
+    />
+    <property
+        name="personalId"
+        type="java.lang.String"
+        column="personalId"
+        length="100"
+    />
+    <property
+        name="isGetBackPW"
+        type="java.lang.String"
+        column="isGetBackPW"
+        length="1"
+    />
+    <property
+        name="userBirthday"
+        type="java.lang.String"
+        column="userBirthday"
+        length="7"
+    />
+    <property
+        name="userSex"
+        type="java.lang.String"
+        column="userSex"
+        length="1"
+    />
+    <property
+        name="userJob"
+        type="java.lang.String"
+        column="userJob"
+        length="10"
+    />
+    <property
+        name="userJobType"
+        type="java.lang.String"
+        column="userJobType"
+        length="10"
+    />
+    <property
+        name="medicineSN"
+        type="java.lang.String"
+        column="medicineSN"
+        length="20"
+    />
+    <property
+        name="education"
+        type="java.lang.String"
+        column="education"
+        length="10"
+    />
+    <property
+        name="jobTitle"
+        type="java.lang.String"
+        column="jobTitle"
+        length="10"
+    />
+    <property
+        name="userJobModDate"
+        type="java.lang.String"
+        column="userJobModDate"
+        length="7"
+    />
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="applyDate"
+        type="java.lang.String"
+        column="applyDate"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    <property
+        name="memo"
+        type="java.lang.String"
+        column="memo"
+        length="500"
+    />
+    <property
+        name="inORout"
+        type="java.lang.String"
+        column="inORout"
+        length="3"
+    />
+    
+    <property
+        name="editId"
+        type="java.lang.String"
+        column="editId"
+        length="20"
+    />
+    <property
+        name="editDate"
+        type="java.lang.String"
+        column="editDate"
+        length="7"
+    />
+    <property
+        name="editTime"
+        type="java.lang.String"
+        column="editTime"
+        length="6"
+    />
+    
+    <property
+        name="trans"
+        type="java.lang.String"
+        column="trans"
+        length="1"
+    />
+    <property
+        name="isGetNewID"
+        type="java.lang.String"
+        column="isGetNewID"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to CommonGroup -->
+    <many-to-one lazy="proxy" 
+        name="commonGroup"
+        class="com.kangdainfo.common.model.bo.CommonGroup"
+        not-null="false"
+        not-found="ignore" 
+    >
+        <column name="groupId" />
+    </many-to-one>
+        
+    <many-to-one
+        name="commonDepartment"
+        class="com.kangdainfo.common.model.bo.CommonDepartment"
+        not-null="true"
+    >
+        <column name="deptId" />
+    </many-to-one>
+    
+    <!-- bi-directional many-to-one association to CommonCode -->
+    <many-to-one lazy="proxy"
+        name="commonCode"
+        class="com.kangdainfo.common.model.bo.CommonCode"
+        not-null="false" 
+        not-found="ignore"
+    >
+        <column name="userTitle" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

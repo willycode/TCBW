@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Con3001Db" table="CON3001_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">CON3001_DB_SEQ</param>
+            </generator>
+        </id>
+        <property name="projType" type="java.lang.String">
+            <column name="projType" length="3" />
+        </property>
+        <property name="projName" type="java.lang.String">
+            <column name="projName" length="100" />
+        </property>
+        <property name="permitKey" type="java.lang.String">
+            <column name="permitKey" length="2" />
+        </property>         
+        <property name="permitNo" type="java.lang.String">
+            <column name="permitNo" length="6" />
+        </property> 
+        <property name="chProduct" type="java.lang.String">
+            <column name="chProduct" length="100" />
+        </property> 
+        <property name="applicationId" type="java.lang.String">
+            <column name="applicationId" length="20" />
+        </property> 
+        <property name="applicationName" type="java.lang.String">
+            <column name="applicationName" length="100" />
+        </property> 
+        <property name="medSecCategory" type="java.lang.String">
+            <column name="medSecCategory" length="10" />
+        </property> 
+        <property name="isclose" type="java.lang.String">
+            <column name="isclose" length="1" />
+        </property> 
+        <property name="maintainman" type="java.lang.String">
+            <column name="maintainman"/>
+        </property> 
+        <property name="receiveSystem" type="java.lang.String">
+            <column name="RECEIVESYSTEM" length="50" />
+        </property>
+        <property name="receiveDate" type="java.lang.String">
+            <column name="RECEIVEDATE" length="7" />
+        </property>
+        <property name="receiveTime" type="java.lang.String">
+            <column name="RECEIVETIME" length="6" />            
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="CREATOR" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="CREATEDATE" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="CREATETIME" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="MODIFIER" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="MODIFYDATE" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="MODIFYTIME" length="6" />            
+        </property>
+        
+   
+    </class>
+</hibernate-mapping>

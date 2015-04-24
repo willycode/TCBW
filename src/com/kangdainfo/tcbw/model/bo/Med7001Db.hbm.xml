@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+   <class 
+    name="com.kangdainfo.tcbw.model.bo.Med7001Db" 
+    table="MED7001_DB"
+    lazy="false"
+   >
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+        <generator class="native">
+            <param name="sequence">MED7001_DB_SEQ</param>
+        </generator>
+    </id>	
+    
+    <property
+        name="applNo"
+        type="java.lang.String"
+        column="applNo"
+        length="11"
+    />      
+      
+    <property
+        name="publDept"
+        type="java.lang.String"
+        column="publDept"
+        length="2"
+    /> 
+    
+     <property
+        name="situation"
+        type="java.lang.String"
+        column="situation"
+        length="2"
+    /> 
+    <property
+        name="medMainCategory"
+        type="java.lang.String"
+        column="medMainCategory"
+        length="10"
+    /> 
+
+    <property
+        name="chProduct"
+        type="java.lang.String"
+        column="chProduct"
+        length="100"
+    /> 
+    
+    <property
+        name="recycleclass"
+        type="java.lang.String"
+        column="recycleclass"
+        length="2"
+    /> 
+
+ 
+    <property
+        name="dataRevDate"
+        type="java.lang.String"
+        column="dataRevDate"
+        length="7"
+    /> 
+
+
+    <property
+        name="publDate"
+        type="java.lang.String"
+        column="publDate"
+        length="7"
+    />
+    <property
+        name="manufactorName"
+        type="java.lang.String"
+        column="manufactorName"
+        length="200"
+    /> 
+    
+    <property
+        name="contextsummary"
+        type="java.lang.String"
+        column="contextsummary"
+        length="2000"
+    />
+    <property
+        name="lotNo"
+        type="java.lang.String"
+        column="lotNo"
+        length="50"
+    />
+    <property
+        name="applicationaction"
+        type="java.lang.String"
+        column="applicationaction"
+        length="100"
+    /> 
+
+    <property
+        name="effectarea"
+        type="java.lang.String"
+        column="effectarea"
+        length="50"
+    /> 
+    
+    <property
+        name="effectnum"
+        type="java.lang.String"
+        column="effectnum"
+        length="50"
+    /> 
+
+    <property
+        name="datasourWebSite"
+        type="java.lang.String"
+        column="datasourWebSite"
+        length="150"
+    /> 
+
+    <property
+        name="isrecycle"
+        type="java.lang.String"
+        column="isrecycle"
+        length="1"
+    /> 
+    
+    <property
+        name="istranslate"
+        type="java.lang.String"
+        column="istranslate"
+        length="1"
+    /> 
+    
+    <property
+        name="translateman"
+        type="java.lang.String"
+        column="translateman"
+        length="50"
+    /> 
+    
+    <property
+        name="medModel"
+        type="java.lang.String"
+        column="medModel"
+        length="100"
+    /> 
+ 
+    <property
+        name="productlotNo"
+        type="java.lang.String"
+        column="productlotNo"
+        length="100"
+    /> 
+
+    <property
+        name="incountrysituation"
+        type="java.lang.String"
+        column="incountrysituation"
+        length="150"
+    /> 
+
+    <property
+        name="fdareceiveDate"
+        type="java.lang.String"
+        column="fdareceiveDate"
+        length="7"
+    /> 
+
+    <property
+        name="fdareceiveNo"
+        type="java.lang.String"
+        column="fdareceiveNo"
+        length="20"
+    /> 
+    
+    <property
+        name="receivesummary"
+        type="java.lang.String"
+        column="receivesummary"
+        length="100"
+    /> 
+
+    <property
+        name="postdate"
+        type="java.lang.String"
+        column="postdate"
+        length="7"
+    /> 
+
+    <property
+        name="posesummary"
+        type="java.lang.String"
+        column="posesummary"
+        length="4000"
+    /> 
+
+    <property
+        name="completerecycledate"
+        type="java.lang.String"
+        column="completerecycledate"
+        length="7"
+    /> 
+ 
+    <property
+        name="completereceiveno"
+        type="java.lang.String"
+        column="completereceiveno"
+        length="20"
+    /> 
+    
+    <property
+        name="completesummary"
+        type="java.lang.String"
+        column="completesummary"
+        length="100"
+    />
+    
+    <property
+        name="status"
+        type="java.lang.String"
+        column="status"
+        length="2"
+    />  
+    
+    <property
+        name="restartreason"
+        type="java.lang.String"
+        column="restartreason"
+        length="200"
+    />  
+    
+     <property
+        name="trans"
+        type="java.lang.String"
+        column="trans"
+        length="1"
+    />
+       
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+
+    <set name="med7002Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med7001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med7002Db"/>
+	</set>
+ 	<set name="med7003Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med7001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med7003Db" />
+	</set> 		
+	<set name="med7004Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med7001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med7004Db" />
+	</set>
+	<set name="med7005Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med7001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med7005Db" />
+	</set>
+</class>
+</hibernate-mapping>

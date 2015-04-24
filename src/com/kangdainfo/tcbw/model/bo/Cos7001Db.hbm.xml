@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class 
+    name="com.kangdainfo.tcbw.model.bo.Cos7001Db" 
+    table="COS7001_DB"
+    lazy="false"
+>
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+        <generator class="native">
+            <param name="sequence">COS7001_DB_SEQ</param>
+        </generator>
+    </id>
+    
+    <property
+        name="applNo"
+        type="java.lang.String"
+        column="applNo"
+        length="11"
+    />
+
+    <property
+        name="prodtype"
+        type="java.lang.String"
+        column="prodtype"
+        length="3"
+    /> 
+    
+	<property
+ 		name="chProduct"
+    	type="java.lang.String"
+    	column="chProduct"
+    	length="100"
+ 	/>
+    
+    <property
+        name="dataRevDate"
+        type="java.lang.String"
+        column="dataRevDate"
+        length="7"
+    />
+    
+    <property
+        name="publDept"
+        type="java.lang.String"
+        column="publDept"
+        length="2"
+    />
+    
+     <property
+        name="publCountry"
+        type="java.lang.String"
+        column="publCountry"
+        length="2"
+    />
+    
+     <property
+        name="manufactorCountry"
+        type="java.lang.String"
+        column="manufactorCountry"
+        length="50"
+    />
+    
+     <property
+        name="ingredient"
+        type="java.lang.String"
+        column="ingredient"
+        length="2"
+    />
+    
+     <property
+        name="brand"
+        type="java.lang.String"
+        column="brand"
+        length="50"
+    />
+    
+     <property
+        name="situation"
+        type="java.lang.String"
+        column="situation"
+        length="2"
+    />
+    
+     <property
+        name="publDate"
+        type="java.lang.String"
+        column="publDate"
+        length="7"
+    />
+    
+     <property
+        name="subjecttype"
+        type="java.lang.String"
+        column="subjecttype"
+        length="10"
+    />
+    
+     <property
+        name="subject"
+        type="java.lang.String"
+        column="subject"
+        length="250"
+    />
+    
+     <property
+        name="contextsummary"
+        type="java.lang.String"
+        column="contextsummary"
+        length="250"
+    />
+    
+     <property
+        name="lotNo"
+        type="java.lang.String"
+        column="lotNo"
+        length="50"
+    />
+    
+     <property
+        name="datasourWebSite"
+        type="java.lang.String"
+        column="datasourWebSite"
+        length="150"
+    />
+    
+     <property
+        name="estimateDate"
+        type="java.lang.String"
+        column="estimateDate"
+        length="7"
+    />
+    
+     <property
+        name="isImport"
+        type="java.lang.String"
+        column="isImport"
+        length="1"
+    />
+    
+     <property
+        name="ispublnews"
+        type="java.lang.String"
+        column="ispublnews"
+        length="1"
+    />
+    
+     <property
+        name="ispublconsumer"
+        type="java.lang.String"
+        column="ispublconsumer"
+        length="1"
+    />
+    
+     <property
+        name="publconsumerDate"
+        type="java.lang.String"
+        column="publconsumerDate"
+        length="7"
+    />
+    
+     <property
+        name="lamp"
+        type="java.lang.String"
+        column="lamp"
+        length="2"
+    />
+    
+     <property
+        name="searchdept"
+        type="java.lang.String"
+        column="searchdept"
+        length="2"
+    />
+    
+     <property
+        name="remark"
+        type="java.lang.String"
+        column="remark"
+        length="100"
+    />
+    
+     <property
+        name="aftereffect"
+        type="java.lang.String"
+        column="aftereffect"
+        length="2"
+    />
+    
+     <property
+        name="status"
+        type="java.lang.String"
+        column="status"
+        length="2"
+    />	
+    
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+    
+</class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+		
+	<bean id="environmentConfig" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+		<property name="algorithm">
+			<value>PBEWithMD5AndDES</value>
+		</property>
+		<property name="passwordEnvName">
+			<value>DB_ENCRYPTION_PWD</value>
+		</property>
+		<property name="password">
+			<value>2715*397!</value>
+		</property>		
+	</bean>
+		
+	<bean id="stringEncrypter" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">		
+		<property name="config" ref="environmentConfig" />	
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="org.jasypt.spring3.properties.EncryptablePropertyPlaceholderConfigurer">
+		<constructor-arg ref="stringEncrypter" />
+		<property name="locations">
+			<list>						
+				<value>/WEB-INF/properties/database.properties</value>
+				<value>/WEB-INF/properties/database-default.properties</value>
+				<value>/WEB-INF/properties/app.properties</value>
+			</list>
+		</property>		
+	</bean>
+	
+	<!-- 		
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>						
+				<value>/WEB-INF/properties/database.properties</value>
+				<value>/WEB-INF/properties/database-default.properties</value>
+				<value>/WEB-INF/properties/app.properties</value>
+			</list>
+		</property>
+	</bean>
+    -->
+</beans>

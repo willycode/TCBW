@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+   <class 
+    name="com.kangdainfo.tcbw.model.bo.Med4005Db" 
+    table="MED4005_DB"
+    lazy="false"
+   >
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <generator class="native">
+            <param name="sequence">MED4005_DB_SEQ</param>
+        </generator>
+    </id>
+    
+    <many-to-one name="med4001Db" class="com.kangdainfo.tcbw.model.bo.Med4001Db" >
+            <column name="MED4001_ID" not-null="true"  />
+    </many-to-one>
+ 
+    <property
+        name="cName"
+        type="java.lang.String"
+        column="cName"
+        length="30"
+    />
+    <property
+        name="content"
+        type="java.lang.String"
+        column="content"
+        length="20"
+    />
+    <property
+        name="formulation"
+        type="java.lang.String"
+        column="formulation"
+        length="30"
+    />
+    <property
+        name="drgApproach"
+        type="java.lang.String"
+        column="drgApproach"
+        length="20"
+    />
+    <property
+        name="model"
+        type="java.lang.String"
+        column="model"
+        length="20"
+    />
+    <property
+        name="dose"
+        type="java.lang.String"
+        column="dose"
+        length="20"
+    />
+    <property
+        name="frequency"
+        type="java.lang.String"
+        column="frequency"
+        length="10"
+    />
+    <property
+        name="sDate"
+        type="java.lang.String"
+        column="sDate"
+        length="7"
+    />
+    <property
+        name="eDate"
+        type="java.lang.String"
+        column="eDate"
+        length="7"
+    />
+    <property
+        name="medCauses"
+        type="java.lang.String"
+        column="medCauses"
+        length="50"
+    />
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+    
+</class>
+</hibernate-mapping>

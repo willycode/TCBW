@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Drg4009Db" table="DRG4009_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">DRG4009_DB_SEQ</param>
+            </generator>
+        </id>
+
+        <property name="notifyDate" type="java.lang.String">
+            <column name="notifyDate" length="7" />
+        </property>
+        <property name="ingredient" type="java.lang.String">
+            <column name="ingredient" length="50" />
+        </property>
+        <property name="replyDate" type="java.lang.String">
+            <column name="replyDate" length="7" />
+        </property>
+		<property name="medAgencyName" type="java.lang.String">
+            <column name="medAgencyName" length="50" />
+        </property>
+		<property name="isEffectChange" type="java.lang.String">
+            <column name="isEffectChange" length="1" />
+        </property>
+		<property name="isBrandChange" type="java.lang.String">
+            <column name="isBrandChange" length="1" />
+        </property>
+		<property name="noBrandChange" type="java.lang.String">
+            <column name="noBrandChange" length="1" />
+        </property>
+		<property name="beforeBrand" type="java.lang.String">
+            <column name="beforeBrand" length="50" />
+        </property>
+		<property name="afterBrand" type="java.lang.String">
+            <column name="afterBrand" length="50" />
+        </property>
+		<property name="comment" type="java.lang.String">
+            <column name="comment" length="100" />
+        </property>
+        <property name="receiveSystem" type="java.lang.String">
+            <column name="receiveSystem" length="50" />
+        </property>
+        <property name="receiveDate" type="java.lang.String">
+            <column name="receiveDate" length="7" />
+        </property>
+        <property name="receiveTime" type="java.lang.String">
+            <column name="receiveTime" length="6" />            
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+        
+ 		<many-to-one name="drg4005Db" class="com.kangdainfo.tcbw.model.bo.Drg4005Db" >
+            <column name="DRG4005_ID" not-null="true"  />
+    	</many-to-one>
+    	<many-to-one name="con1009Db" class="com.kangdainfo.tcbw.model.bo.Con1009Db" >
+            <column name="CON1009_ID" not-null="true"  />
+    	</many-to-one>
+    </class>
+</hibernate-mapping>

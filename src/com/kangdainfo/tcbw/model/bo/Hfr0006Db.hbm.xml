@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Hfr0006Db" table="HFR0006_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">HFR0006_DB_SEQ</param>
+            </generator>
+        </id>
+        
+        <many-to-one
+	        name="hfr0001Db"
+	        class="com.kangdainfo.tcbw.model.bo.Hfr0001Db"
+	        not-null="true"
+	    >
+	        <column name="hfr0001_id" />
+	    </many-to-one>
+        <property name="evaluateDate" type="java.lang.String">
+            <column name="evaluateDate" length="7" />
+        </property>
+        <property name="evaluateCommittee" type="java.lang.Long">
+            <column name="evaluateCommittee" scale="0" />
+        </property>
+        <property name="unExpectedClassify" type="java.lang.String">
+            <column name="unExpectedClassify" length="10" />
+        </property>
+        <property name="unExpectedReason" type="java.lang.String">
+            <column name="unExpectedReason" length="20" />
+        </property>
+        <property name="evidentiary" type="java.lang.String">
+            <column name="evidentiary" length="10" />
+        </property>
+        <property name="secSeverity" type="java.lang.String">
+            <column name="secSeverity" length="10" />
+        </property>
+        <property name="administrativeLevel" type="java.lang.String">
+            <column name="administrativeLevel" length="10" />
+        </property>
+        <property name="assessments" type="java.lang.String">
+            <column name="assessments" length="200" />
+        </property>
+        <property name="evaluateResult" type="java.lang.String">
+            <column name="evaluateResult" length="200" />
+        </property>
+        <property name="isClosed" type="java.lang.String">
+            <column name="isClosed" length="1" />
+        </property>
+        <property name="secExplain" type="java.lang.String">
+            <column name="secExplain" length="100" />
+        </property>
+        <property name="unSecExplain" type="java.lang.String">
+            <column name="unSecExplain" length="100" />
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+    </class>
+</hibernate-mapping>

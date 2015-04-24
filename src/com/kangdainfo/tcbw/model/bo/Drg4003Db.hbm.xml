@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+   <class 
+    name="com.kangdainfo.tcbw.model.bo.Drg4003Db" 
+    table="DRG4003_DB"
+    lazy="false"
+   >
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <generator class="native">
+            <param name="sequence">DRG4003_DB_SEQ</param>
+        </generator>
+    </id>
+    
+    <many-to-one name="drg4001Db" class="com.kangdainfo.tcbw.model.bo.Drg4001Db" >
+            <column name="DRG4001_ID" not-null="true"  />
+    </many-to-one>
+		<property name="medType" type="java.lang.String">
+            <column name="medType" length="2" />
+        </property>
+        <property name="permitKey" type="java.lang.String">
+            <column name="permitKey" length="2" />
+        </property>
+        <property name="permitNo" type="java.lang.String">
+            <column name="permitNo" length="14" />
+        </property>
+        <property name="scientificName" type="java.lang.String">
+            <column name="scientificName" length="100" />
+        </property>
+        <property name="productName" type="java.lang.String">
+            <column name="productName" length="100" />
+        </property>
+        <property name="applicationName" type="java.lang.String">
+            <column name="applicationName" length="100" />
+        </property>
+        <property name="manufactorID" type="java.lang.String">
+            <column name="manufactorID" length="10" />
+        </property>
+        <property name="manufactorName" type="java.lang.String">
+            <column name="manufactorName" length="100" />
+        </property>
+        <property name="manufactorNo" type="java.lang.String">
+            <column name="manufactorNo" length="20" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" length="10" />
+        </property>
+        <property name="medModel" type="java.lang.String">
+            <column name="medModel" length="2" />
+        </property>
+        <property name="medModelOther" type="java.lang.String">
+            <column name="medModelOther" length="20" />
+        </property>
+        <property name="medPath" type="java.lang.String">
+            <column name="medPath" length="2" />
+        </property>
+        <property name="medPathOther" type="java.lang.String">
+            <column name="medPathOther" length="20" />
+        </property>
+        <property name="dosage" type="java.lang.String">
+            <column name="dosage" length="10" />
+        </property>
+        <property name="frequency" type="java.lang.String">
+            <column name="frequency" length="3" />
+        </property>
+        <property name="frequencyOther" type="java.lang.String">
+            <column name="frequencyOther" length="20" />
+        </property>
+        <property name="startDare" type="java.lang.String">
+            <column name="startDare" length="7" />
+        </property>
+        <property name="endDate" type="java.lang.String">
+            <column name="endDate" length="7" />
+        </property>
+        <property name="indication" type="java.lang.String">
+            <column name="indication" length="50" />
+        </property>
+        
+        <property name="receiveSystem" type="java.lang.String">
+            <column name="receiveSystem" length="50" />
+        </property>
+        <property name="receiveDate" type="java.lang.String">
+            <column name="receiveDate" length="7" />
+        </property>
+        <property name="receiveTime" type="java.lang.String">
+            <column name="receiveTime" length="6" />            
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+        
+        <property name="trans" type="java.lang.String">
+            <column name="trans" length="1" />
+        </property> 
+        <property name="old_CaseNoE" type="java.lang.String">
+            <column name="old_Case_No_E" length="20" />
+        </property>
+        <property name="old_CaseNoD" type="java.lang.String">
+            <column name="old_Case_No_D" length="20" />
+        </property>
+    
+</class>
+</hibernate-mapping>

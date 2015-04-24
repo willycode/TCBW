@@ -1,0 +1,75 @@
+
+td, th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 24px;
+	color: #000000;
+
+	}
+	
+.site {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #000000;
+	padding-left: 6px;
+	}
+
+.ch10_ash {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 24px;
+	color: #000000;
+	text-align: center;
+		}
+	
+.ch10_white {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 24px;
+	color: #FFFFFF;
+	padding-left: 6px;
+	}
+
+.en9_ash {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	line-height: 24px;
+	color: #000000;
+	padding-left: 6px;
+	}
+	
+.en9c_ash {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	line-height: 24px;
+	color: #000000;
+	text-align: center;
+	}
+	
+a:link {
+	font-size: 10pt;
+	color: #000000;
+	}
+	
+a:visited {
+	font-size: 10pt;
+	color: #000000;
+
+	}
+	
+a:hover {
+	font-size: 10pt;
+	color: #006600;
+	}
+	
+a:active {
+	font-size: 10pt;
+	color: #000000;
+	}
+	
+.home_title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 24px;
+	color: #FFFFFF;
+    text-align: left;
+	}	

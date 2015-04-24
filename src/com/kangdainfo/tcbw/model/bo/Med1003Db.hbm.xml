@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class 
+    name="com.kangdainfo.tcbw.model.bo.Med1003Db" 
+    table="MED1003_DB"
+    lazy="false"
+>
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <generator class="native">
+            <param name="sequence">MED1003_DB_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="num"
+        type="java.lang.String"
+        column="NUM"
+        length="4"
+    /> 
+    
+    <property
+        name="matter"
+        type="java.lang.String"
+        column="MATTER"
+        length="255"
+    /> 
+    
+    <property
+        name="isYes"
+        type="java.lang.Integer"
+        column="ISYES"
+        length="2"
+    />
+    <property
+        name="isYesType"
+        type="java.lang.String"
+        column="ISYESTYPE"
+        length="1"
+    />
+    
+    <property
+        name="isNo"
+        type="java.lang.Integer"
+        column="ISNO"
+        length="2"
+    />
+    <property
+        name="isNoType"
+        type="java.lang.String"
+        column="ISNOTYPE"
+        length="1"
+    />
+    
+    <property
+        name="isUnknown"
+        type="java.lang.Integer"
+        column="ISUNKNOWN"
+        length="2"
+    />
+    <property
+        name="isUnknownType"
+        type="java.lang.String"
+        column="ISUNKNOWNTYPE"
+        length="1"
+    />
+   
+    <property
+        name="seq"
+        type="java.lang.Integer"
+        column="SEQ"
+        length="2"
+    />
+     
+    <property
+        name="isStop"
+        type="java.lang.String"
+        column="ISSTOP"
+        length="1"
+    />
+ 
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+    
+</class>
+</hibernate-mapping>

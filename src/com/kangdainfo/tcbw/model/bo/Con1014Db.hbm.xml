@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class 
+    name="com.kangdainfo.tcbw.model.bo.Con1014Db" 
+    table="CON1014_DB"
+    lazy="false"
+>
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <generator class="native">
+            <param name="sequence">CON1014_DB_SEQ</param>
+        </generator>
+    </id>
+    
+    <many-to-one name="con1007Db" class="com.kangdainfo.tcbw.model.bo.Con1007Db" >
+            <column name="CON1007_ID" not-null="true"  />
+    </many-to-one>
+    
+    
+    <property
+        name="sysKind"
+        type="java.lang.String"
+        column="SYSKIND"
+        length="3"
+    />
+    
+        <property
+        name="code"
+        type="java.lang.String"
+        column="CODE"
+        length="4"
+    />
+    
+        <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="50"
+    />
+    
+        <property
+        name="isStop"
+        type="java.lang.String"
+        column="ISSTOP"
+        length="1"
+    />
+
+
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+    
+</class>
+</hibernate-mapping>

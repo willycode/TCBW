@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">	
+
+	<!-- Sub Systems -->
+	<!-- 若子系統沒有用共用模組，有自己獨立的Page時-->
+	<!-- property name="defaultPage" value="/index.jsp" /-->	
+	<bean id="s11" class="com.kangdainfo.common.model.bo.SubSystem">
+		<property name="id" value="-11" />
+    	<property name="code" value="common" />
+    	<property name="name" value="藥物食品化粧品上市後品質管理系統" />    	
+	</bean>
+	<bean id="s99" class="com.kangdainfo.common.model.bo.SubSystem">
+		<property name="id" value="-99" />	
+    	<property name="code" value="sysmgt" />	
+    	<property name="name" value="系統管理" />		
+	</bean>		
+</beans>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>列表檔案</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Expires" content="-1"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="Cache-control" content="no-cache"/>
+<link rel="stylesheet" href="../js/default.css" type="text/css"/>
+<script type="text/javascript" src="../js/validate.js"></script>
+<script type="text/javascript" src="../js/function.js"></script>
+<script type="text/javascript" src="../js/tablesoft.js"></script>
+<script type="text/javascript">
+function getContentList() {
+	if (isObj(opener.document.all.listContainer)) {
+		document.all.listContainer.innerHTML = opener.document.all.listContainer.innerHTML;
+	}
+}	
+
+function queryOne() {
+}
+</script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+<form name="form1">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td nowrap class="bg">
+<div id="listContainer" style="height:100%">
+<script type="text/javascript">
+	if (isObj(opener.document.all.listContainer)) {
+		document.write(opener.document.all.listContainer.innerHTML);
+	}
+</script>
+</div>
+</td></tr>
+</table>
+</form>
+</body>
+</html>

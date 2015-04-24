@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonGroup" 
+    table="COMMON_GROUP"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Integer"
+        column="Id"
+    >
+    
+        <generator class="native">
+        	<param name="sequence">COMMON_GROUP_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="groupName"
+        type="java.lang.String"
+        column="groupName"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="groupDesc"
+        type="java.lang.String"
+        column="groupDesc"
+        length="500"
+    />
+    <property
+        name="subSystem"
+        type="java.lang.String"
+        column="subSystem"
+        length="20"
+    />
+    <property
+        name="editId"
+        type="java.lang.String"
+        column="editId"
+        length="50"
+    />
+    <property
+        name="editDate"
+        type="java.lang.String"
+        column="editDate"
+        length="7"
+    />
+    <property
+        name="editTime"
+        type="java.lang.String"
+        column="editTime"
+        length="6"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to CommonAuth -->
+
+    <set
+        name="commonAuths"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="groupId" />
+        </key>
+        
+        <one-to-many 
+            class="com.kangdainfo.common.model.bo.CommonAuth"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to CommonUser -->
+
+    <set
+        name="commonUsers"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="groupId" />
+        </key>
+        
+        <one-to-many 
+            class="com.kangdainfo.common.model.bo.CommonUser"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

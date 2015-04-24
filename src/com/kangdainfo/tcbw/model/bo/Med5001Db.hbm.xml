@@ -1,0 +1,673 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+   <class 
+    name="com.kangdainfo.tcbw.model.bo.Med5001Db" 
+    table="MED5001_DB"
+    lazy="false"
+   >
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <generator class="native">
+            <param name="sequence">MED5001_DB_SEQ</param>
+        </generator>
+    </id>
+    
+    <set name="med5002Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med5001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med5002Db"/>
+	</set>
+ 	<set name="med5003Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med5001_id" />
+		</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Med5003Db" />
+	</set> 		
+	<set name="med5004Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med5001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med5004Db" />
+	</set>
+	<set name="med5005Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med5001_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med5005Db" />
+	</set>
+	
+    <property
+        name="med2001ID"
+        type="java.lang.Long"
+        column="med2001ID"
+    /> 
+    
+    <property
+        name="applNo"
+        type="java.lang.String"
+        column="applNo"
+        length="11"
+    /> 
+    
+      <property
+        name="revision"
+        type="java.lang.String"
+        column="revision"
+        length="2"
+    /> 
+    
+    <property
+        name="status"
+        type="java.lang.String"
+        column="status"
+        length="2"
+    /> 
+    
+    <property
+        name="occurDate"
+        type="java.lang.String"
+        column="occurDate"
+        length="7"
+    /> 
+    
+     <property
+        name="enrolledDate"
+        type="java.lang.String"
+        column="enrolledDate"
+        length="7"
+    /> 
+    <property
+        name="notifierRevDate"
+        type="java.lang.String"
+        column="notifierRevDate"
+        length="7"
+    /> 
+
+    <property
+        name="notifierRepDate"
+        type="java.lang.String"
+        column="notifierRepDate"
+        length="7"
+    /> 
+    
+    <property
+        name="notifierName"
+        type="java.lang.String"
+        column="notifierName"
+        length="50"
+    /> 
+
+ 
+    <property
+        name="notifierAreaCode"
+        type="java.lang.String"
+        column="notifierAreaCode"
+        length="3"
+    /> 
+
+
+    <property
+        name="notifierTelExt"
+        type="java.lang.String"
+        column="notifierTelExt"
+        length="5"
+    />
+    <property
+        name="notifierTel"
+        type="java.lang.String"
+        column="notifierTel"
+        length="11"
+    /> 
+    
+    <property
+        name="notifierDeptID"
+        type="java.lang.String"
+        column="notifierDeptID"
+        length="50"
+    />
+    <property
+        name="notifierDept"
+        type="java.lang.String"
+        column="notifierDept"
+        length="100"
+    />
+    <property
+        name="notifierAddress"
+        type="java.lang.String"
+        column="notifierAddress"
+        length="50"
+    /> 
+
+    <property
+        name="notifierEamil"
+        type="java.lang.String"
+        column="notifierEamil"
+        length="30"
+    /> 
+    
+    <property
+        name="notifierType"
+        type="java.lang.String"
+        column="notifierType"
+        length="2"
+    /> 
+
+    <property
+        name="notifierTitle"
+        type="java.lang.String"
+        column="notifierTitle"
+        length="20"
+    /> 
+
+    <property
+        name="caseSource"
+        type="java.lang.String"
+        column="caseSource"
+        length="4"
+    /> 
+    
+    <property
+        name="caseSourceOutCountry"
+        type="java.lang.String"
+        column="caseSourceOutCountry"
+        length="20"
+    /> 
+    
+    <property
+        name="caseSourceInHospital"
+        type="java.lang.String"
+        column="caseSourceInHospital"
+        length="30"
+    /> 
+    
+    <property
+        name="caseSourceInDoctor"
+        type="java.lang.String"
+        column="caseSourceInDoctor"
+        length="20"
+    /> 
+ 
+    <property
+        name="reportKind"
+        type="java.lang.String"
+        column="reportKind"
+        length="2"
+    /> 
+
+    <property
+        name="trackingNum"
+        type="java.lang.String"
+        column="trackingNum"
+        length="2"
+    /> 
+
+    <property
+        name="testName"
+        type="java.lang.String"
+        column="testName"
+        length="20"
+    /> 
+
+    <property
+        name="fdaNum"
+        type="java.lang.String"
+        column="fdaNum"
+        length="20"
+    /> 
+    
+    <property
+        name="fdaOptions"
+        type="java.lang.String"
+        column="fdaOptions"
+        length="20"
+    /> 
+
+    <property
+        name="approvedUnits"
+        type="java.lang.String"
+        column="approvedUnits"
+        length="20"
+    /> 
+
+    <property
+        name="approvedUnitsOther"
+        type="java.lang.String"
+        column="approvedUnitsOther"
+        length="30"
+    /> 
+
+    <property
+        name="firmTestNo"
+        type="java.lang.String"
+        column="firmTestNo"
+        length="20"
+    /> 
+ 
+    <property
+        name="patientId"
+        type="java.lang.String"
+        column="patientId"
+        length="10"
+    /> 
+    
+    <property
+        name="patientSex"
+        type="java.lang.String"
+        column="patientSex"
+        length="1"
+    /> 
+
+    <property
+        name="patientBirth"
+        type="java.lang.String"
+        column="patientBirth"
+        length="7"
+    /> 
+
+    <property
+        name="patientAge"
+        type="java.lang.String"
+        column="patientAge"
+        length="3"
+    /> 
+
+    <property
+        name="patientWeight"
+        type="java.lang.String"
+        column="patientWeight"
+        length="3"
+    /> 
+
+    <property
+        name="patientHeigth"
+        type="java.lang.String"
+        column="patientHeigth"
+        length="3"
+    /> 
+
+    <property
+        name="badReactionResults"
+        type="java.lang.String"
+        column="badReactionResults"
+        length="30"
+    /> 
+   
+    <property
+        name="badReactionResultsDeathDate"
+        type="java.lang.String"
+        column="badReactionResultsDeathDate"
+        length="7"
+    /> 
+
+    <property
+        name="badReactionResultsDeathReason"
+        type="java.lang.String"
+        column="badReactionResultsDeathReason"
+        length="30"
+    /> 
+
+    <property
+        name="badReactionResultsOther"
+        type="java.lang.String"
+        column="badReactionResultsOther"
+        length="30"
+    /> 
+    
+    <property
+        name="medPermit"
+        type="java.lang.String"
+        column="medPermit"
+        length="20"
+    /> 
+    
+    <property
+        name="medPermitNumber"
+        type="java.lang.String"
+        column="medPermitNumber"
+        length="10"
+    /> 
+    
+    <property
+        name="medTestMedical"
+        type="java.lang.String"
+        column="medTestMedical"
+        length="30"
+    /> 
+
+    <property
+        name="medType"
+        type="java.lang.String"
+        column="medType"
+        length="30"
+    /> 
+
+    <property
+        name="medFactory"
+        type="java.lang.String"
+        column="medFactory"
+        length="30"
+    /> 
+ 
+    <property
+        name="medSupplier"
+        type="java.lang.String"
+        column="medSupplier"
+        length="30"
+    /> 
+
+    <property
+        name="medModel"
+        type="java.lang.String"
+        column="medModel"
+        length="10"
+    /> 
+ 
+    <property
+        name="medNo"
+        type="java.lang.String"
+        column="medNo"
+        length="10"
+    /> 
+
+    <property
+        name="medLotNum"
+        type="java.lang.String"
+        column="medLotNum"
+        length="10"
+    /> 
+
+    <property
+        name="medManufactureDate"
+        type="java.lang.String"
+        column="medManufactureDate"
+        length="7"
+    /> 
+
+    <property
+        name="medOperator"
+        type="java.lang.String"
+        column="medOperator"
+        length="2"
+    /> 
+
+    <property
+        name="medUseDate"
+        type="java.lang.String"
+        column="medUseDate"
+        length="7"
+    /> 
+    
+    <property
+        name="medStopDate"
+        type="java.lang.String"
+        column="medStopDate"
+        length="7"
+    /> 
+ 
+    <property
+        name="medUseReason"
+        type="java.lang.String"
+        column="medUseReason"
+        length="30"
+    /> 
+
+    <property
+        name="medUseIsYn"
+        type="java.lang.String"
+        column="medUseIsYn"
+        length="1"
+    /> 
+
+    <property
+        name="medYesSoruce"
+        type="java.lang.String"
+        column="medYesSoruce"
+        length="30"
+    /> 
+
+    <property
+        name="medNoReturn"
+        type="java.lang.String"
+        column="medNoReturn"
+        length="1"
+    /> 
+ 
+    <property
+        name="medNoReturnDate"
+        type="java.lang.String"
+        column="medNoReturnDate"
+        length="7"
+    /> 
+
+    <property
+        name="medOnceUseMed"
+        type="java.lang.String"
+        column="medOnceUseMed"
+        length="1"
+    /> 
+ 
+    <property
+        name="medOnceUseMedName"
+        type="java.lang.String"
+        column="medOnceUseMedName"
+        length="30"
+    /> 
+ 
+    <property
+        name="medOnceUseBadReaction"
+        type="java.lang.String"
+        column="medOnceUseBadReaction"
+        length="30"
+    /> 
+
+    <property
+        name="medStopMedMitigate"
+        type="java.lang.String"
+        column="medStopMedMitigate"
+        length="1"
+    /> 
+
+    <property
+        name="onceSameReaction"
+        type="java.lang.String"
+        column="onceSameReaction"
+        length="1"
+    /> 
+    
+    <property
+        name="sameTimeUse"
+        type="java.lang.String"
+        column="sameTimeUse"
+        length="2"
+    /> 
+  
+    <property
+        name="sameTimeUseOther"
+        type="java.lang.String"
+        column="sameTimeUseOther"
+        length="30"
+    /> 
+    
+    <property
+        name="medSea"
+        type="java.lang.String"
+        column="medSea"
+        length="2"
+    /> 
+    
+    <property
+        name="procedureSea"
+        type="java.lang.String"
+        column="procedureSea"
+        length="2"
+    /> 
+   
+    <property
+        name="noticeSponsor"
+        type="java.lang.String"
+        column="noticeSponsor"
+        length="1"
+    /> 
+    
+    <property
+        name="noticeSponsorWritten"
+        type="java.lang.String"
+        column="noticeSponsorWritten"
+        length="1"
+    /> 
+   
+    <property
+        name="noticeIRB"
+        type="java.lang.String"
+        column="noticeIRB"
+        length="1"
+    /> 
+    
+    <property
+        name="noticeIRBWritten"
+        type="java.lang.String"
+        column="noticeIRBWritten"
+        length="1"
+    /> 
+    
+    <property
+        name="noticeApprovedUnits"
+        type="java.lang.String"
+        column="noticeApprovedUnits"
+        length="1"
+    /> 
+  
+    <property
+        name="noticeApprovedUnitsWritten"
+        type="java.lang.String"
+        column="noticeApprovedUnitsWritten"
+        length="1"
+    /> 
+    
+    <property
+        name="isAdverseEvents"
+        type="java.lang.String"
+        column="isAdverseEvents"
+        length="1"
+    />
+    
+    <property
+        name="medMainCategoryCode"
+        type="java.lang.String"
+        column="medMainCategoryCode"
+        length="30"
+    />
+    
+     <property
+        name="medMainCategory"
+        type="java.lang.String"
+        column="medMainCategory"
+        length="50"
+    />
+    
+    <property
+        name="medSecCategoryCode"
+        type="java.lang.String"
+        column="medSecCategoryCode"
+        length="30"
+    />
+    
+     <property
+        name="medSecCategory"
+        type="java.lang.String"
+        column="medSecCategory"
+        length="50"
+    />
+    
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+    
+    <property
+        name="inOrOutcreator"
+        type="java.lang.String"
+        column="inOrOutcreator"
+        length="50"
+    />
+
+    <property
+        name="otherDesc"
+        type="java.lang.String"
+        column="otherDesc"
+        length="100"
+    />
+    
+    <property
+        name="isExcelUpdate"
+        type="java.lang.String"
+        column="isExcelUpdate"
+        length="2"
+    />
+    <property name="notifierCounty" type="java.lang.String">
+		<column name="notifierCounty" length="2" />
+	</property>
+	<property name="notifierZipCode" type="java.lang.String">
+		<column name="notifierZipCode" length="5" />
+	</property>  
+</class>
+</hibernate-mapping>

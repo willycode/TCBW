@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonNews" 
+    table="COMMON_NEWS"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Integer"
+        column="id"
+    >
+    
+        <generator class="native">
+        	<param name="sequence">COMMON_NEWS_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="subject"
+        type="java.lang.String"
+        column="subject"
+        length="255"
+    />
+    <property
+        name="content"
+        type="java.lang.String"
+        column="content"
+        length="4000"
+    />
+    <property
+        name="startDate"
+        type="java.lang.String"
+        column="startDate"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.lang.String"
+        column="endDate"
+        length="7"
+    />
+    <property    
+        name="isHtml"
+        type="java.lang.String"
+        column="isHTML"
+        length="1"
+    />
+    <property
+        name="isOpen"
+        type="java.lang.String"
+        column="isOpen"
+        length="1"
+    />    
+    <property
+        name="itemPicture1"
+        type="java.lang.String"
+        column="itemPicture1"
+        length="300"
+    />
+    <property
+        name="itemPicture2"
+        type="java.lang.String"
+        column="itemPicture2"
+        length="300"
+    />
+    <property
+        name="itemPicture3"
+        type="java.lang.String"
+        column="itemPicture3"
+        length="300"
+    />
+    <property
+        name="itemPicture4"
+        type="java.lang.String"
+        column="itemPicture4"
+        length="300"
+    />
+    <property
+        name="itemPicture5"
+        type="java.lang.String"
+        column="itemPicture5"
+        length="300"
+    />
+    <property
+        name="itemPicture6"
+        type="java.lang.String"
+        column="itemPicture6"
+        length="300"
+    />
+    <property
+        name="itemPicture7"
+        type="java.lang.String"
+        column="itemPicture7"
+        length="300"
+    />
+    <property
+        name="itemPicture8"
+        type="java.lang.String"
+        column="itemPicture8"
+        length="300"
+    />
+    <property
+        name="itemPicture9"
+        type="java.lang.String"
+        column="itemPicture9"
+        length="300"
+    />
+    <property
+        name="itemPicture10"
+        type="java.lang.String"
+        column="itemPicture10"
+        length="300"
+    />
+    <property
+        name="editId"
+        type="java.lang.String"
+        column="editID"
+        length="50"
+    />
+    <property
+        name="editDate"
+        type="java.lang.String"
+        column="editDate"
+        length="7"
+    />
+    <property
+        name="editTime"
+        type="java.lang.String"
+        column="editTime"
+        length="6"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to CommonCode -->
+    <many-to-one
+        name="commonCode"
+        class="com.kangdainfo.common.model.bo.CommonCode"
+        not-null="true"
+    >
+        <column name="masterId" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

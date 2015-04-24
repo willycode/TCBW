@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Hfr0003Db" table="HFR0003_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">HFR0003_DB_SEQ</param>
+            </generator>
+        </id>
+        
+        <many-to-one
+	        name="hfr0001Db"
+	        class="com.kangdainfo.tcbw.model.bo.Hfr0001Db"
+	        not-null="true"
+	    >
+	        <column name="hfr0001_id" />
+	    </many-to-one>
+        <property name="discriptDate" type="java.lang.String">
+            <column name="discriptDate" length="7" />
+        </property>
+        <property name="position" type="java.lang.String">
+            <column name="position" length="100" />
+        </property>
+        <property name="symptom" type="java.lang.String">
+            <column name="symptom" length="100" />
+        </property>
+        <property name="severity" type="java.lang.String">
+            <column name="severity" length="100" />
+        </property>
+        <property name="doResponse" type="java.lang.String">
+            <column name="doResponse" length="100" />
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+    </class>
+</hibernate-mapping>

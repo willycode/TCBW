@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	
+	<!-- ======================= util ======================= -->	
+	<bean id="webContextInfo" class="com.kangdainfo.web.util.WebContextInfo" />
+	
+	
+	<!-- ======================= DataSource ======================= -->	
+	<bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor" lazy-init="true"/> 
+
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"> 
+	   <!--<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/> -->
+	</bean>
+
+
+    <bean id="jdbcExceptionTranslator" class="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+    
+    	
+	<!-- ======================= Template ======================= -->
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	
+	<bean id="hibernateTemplateTarget" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+        <property name="jdbcExceptionTranslator">
+            <ref bean="jdbcExceptionTranslator"/>
+        </property>
+    </bean>
+
+<!-- 若需要insert, update等的log請把註解拿掉
+	<bean id="hibernateTemplateAudit" class="com.kangdainfo.audit.aop.HibernateTemplateAudit">	
+	</bean>	
+	<bean id="hibernateTemplateAuditPointcut" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="mappedNames">
+	        <list>
+				<value>save*</value>
+				<value>update*</value>
+				<value>delete*</value>
+				<value>bulkUpdate*</value>
+	        </list>
+		</property>		
+		<property name="advice">
+			<ref bean="hibernateTemplateAudit" />		
+		</property>
+		<property name="classFilter">
+			<bean class="org.springframework.aop.support.RootClassFilter">
+				<constructor-arg>
+					<value>org.springframework.orm.hibernate3.HibernateTemplate</value>
+				</constructor-arg>
+			</bean>		
+		</property>
+	</bean>	
+ -->	
+	<bean id="hibernateTemplate" class="org.springframework.aop.framework.ProxyFactoryBean">
+	    <property name="proxyInterfaces">
+	        <value>org.springframework.orm.hibernate3.HibernateOperations</value>
+	    </property>
+	    <!-- 若需要insert, update等的log請把註解拿掉
+	    <property name="interceptorNames">
+	        <list>
+	            <value>hibernateTemplateAuditPointcut</value>
+	        </list>
+	    </property>
+	    -->
+	    <property name="target">
+	        <ref bean="hibernateTemplateTarget"/>
+	    </property>
+	</bean>	
+	    
+	<bean id="baseDao" class="com.kangdainfo.persistence.hibernate3.BaseDaoImpl">
+	</bean>
+		
+	<bean id="persistenceServiceGetter" class="com.kangdainfo.persistence.PersistenceServiceGetter" >
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>	
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>	
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>	
+		<property name="baseDaoService">
+			<ref bean="baseDao" />
+		</property>	
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>	
+	</bean>
+			
+	<!-- ======================= Transaction Manager ======================= -->	 
+	<bean id="jdbcTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />	
+	</bean>	
+		
+	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*"	 				propagation="REQUIRED" rollback-for="java.lang.Throwable" read-only="true" />
+			<tx:method name="load*"	 				propagation="REQUIRED" rollback-for="java.lang.Throwable" read-only="true" />	
+			<tx:method name="find*"	 				propagation="REQUIRED" rollback-for="java.lang.Throwable" read-only="true" />
+			<tx:method name="query*"	 			propagation="REQUIRED" rollback-for="java.lang.Throwable" read-only="true" />					
+			<tx:method name="save*"	 				propagation="REQUIRED" rollback-for="java.lang.Throwable" />
+			<tx:method name="insert*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="update*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="delete*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="bulk*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="test*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="check*"	 			propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="authenticate*"			propagation="REQUIRED" rollback-for="java.lang.Throwable"/>			
+			<tx:method name="import*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="export*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="parse*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="generate*"  			propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="confirm*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="cancel*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="reject*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="reCreate*" 			propagation="REQUIRED" rollback-for="java.lang.Throwable"/>					
+			<tx:method name="trans*"	 			propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="change*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="print*" 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="validate*" 			propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+			<tx:method name="do*"	 				propagation="REQUIRED" rollback-for="java.lang.Throwable"/>			
+			<tx:method name="sendEmail"	 			propagation="REQUIRED" rollback-for="java.lang.Throwable"/>			
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config>
+		<aop:pointcut id="service" expression="execution(* com..*Service.*(..))" />
+		<aop:pointcut id="DaoImpl" expression="execution(* com..*DaoImpl.*(..))" />		
+		<aop:advisor advice-ref="transactionAdvice" pointcut-ref="service" />
+		<aop:advisor advice-ref="transactionAdvice" pointcut-ref="DaoImpl" />		
+	</aop:config>
+
+	<!-- 
+	<bean id="txProxyTemplate" abstract="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+	    <property name="transactionManager">
+	        <ref bean="transactionManager"/>
+	    </property>
+	    <property name="transactionAttributes">
+	        <props>
+	            <prop key="tx*">PROPAGATION_REQUIRED</prop> 	            	            
+	            <prop key="save*">PROPAGATION_REQUIRED</prop> 
+	        </props>
+	    </property>
+	</bean>
+ 	-->
+    		
+</beans>

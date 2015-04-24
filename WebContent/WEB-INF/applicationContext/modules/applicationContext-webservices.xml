@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<import resource="classpath:org/codehaus/xfire/spring/xfire.xml"/>	
+	<bean id="addressingHandler" class="org.codehaus.xfire.addressing.AddressingInHandler"/>  	
+	
+	<!-- CommonWebService -->
+	<bean id="commonWebService" class="com.kangdainfo.common.service.impl.CommonWebServiceImpl">
+		<property name="revUser">
+			<value>${wsRevUser}</value>
+		</property>
+		<property name="revPwd">
+			<value>${wsRevPwd}</value>
+		</property>		
+	</bean>  	
+	<bean name="CommonWebService" class="org.codehaus.xfire.spring.ServiceBean">  
+		<property name="serviceFactory" ref="xfire.serviceFactory" />
+		<property name="serviceBean" ref="commonWebService"/>  
+		<property name="serviceClass" value="com.kangdainfo.common.service.CommonWebService"/>  
+		<property name="inHandlers">  
+			<list>  
+			   <ref bean="addressingHandler"/>  
+			</list>  
+		</property>  
+	</bean>
+	 	
+</beans>

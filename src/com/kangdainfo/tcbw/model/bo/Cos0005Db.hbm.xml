@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Cos0005Db" table="COS0005_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">COS0005_DB_SEQ</param>
+            </generator>
+        </id>
+        
+        <many-to-one
+	        name="cos0002Db"
+	        class="com.kangdainfo.tcbw.model.bo.Cos0002Db"
+	        not-null="true"
+	    >
+	        <column name="cos0002_id" />
+	    </many-to-one>
+
+        <property name="useDateS" type="java.lang.String">
+            <column name="useDateS" length="7" />
+        </property>
+        <property name="useDateE" type="java.lang.String">
+            <column name="useDateE" length="7" />
+        </property>
+        <property name="tradeDate" type="java.lang.String">
+            <column name="tradeDate" length="7" />
+        </property> 
+        <property name="cName" type="java.lang.String">
+            <column name="cName" length="100" />
+        </property>
+        <property name="manufactorName" type="java.lang.String">
+            <column name="manufactorName" length="50" />
+        </property>
+        <property name="useRate" type="java.lang.String">
+            <column name="useRate" length="50" />
+        </property>  
+        <property name="useMethod" type="java.lang.String">
+            <column name="useMethod" length="50" />
+        </property>
+        <property name="manufactorNo" type="java.lang.String">
+            <column name="manufactorNo" length="10" />
+        </property>
+        <property name="expirationDate" type="java.lang.String">
+            <column name="expirationDate" length="7" />
+        </property>                 
+        <property name="receiveSystem" type="java.lang.String">
+            <column name="receiveSystem" length="50" />
+        </property>
+        <property name="receiveDate" type="java.lang.String">
+            <column name="receiveDate" length="7" />
+        </property>
+        <property name="receiveTime" type="java.lang.String">
+            <column name="receiveTime" length="6" />            
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+    </class>
+</hibernate-mapping>

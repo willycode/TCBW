@@ -1,0 +1,57 @@
+<something-else-entirely>  
+
+	<proxool>
+		<alias>MLMS</alias>
+		<driver-url>jdbc:jtds:sqlserver://172.16.30.185:1433/TCBW;SelectMethod=cursor:sendStringAsUnicode=true</driver-url>
+		<driver-class>net.sourceforge.jtds.jdbc.Driver</driver-class>
+		<driver-properties>
+			<property name="user" value="tcbw" />
+			<property name="password" value="kangdainfo" />
+		</driver-properties>
+		<minimum-connection-count>10</minimum-connection-count>		
+		<maximum-connection-count>500</maximum-connection-count>
+		<simultaneous-build-throttle>500</simultaneous-build-throttle>
+		<prototype-count>3</prototype-count>		
+		<maximum-connection-lifetime>21600000</maximum-connection-lifetime>
+		<maximum-active-time>36000000</maximum-active-time>
+		<house-keeping-test-sql>select 1 as one</house-keeping-test-sql>
+	</proxool>
+	<!-- 食品查驗登記系統  -->	
+	<!--
+	<proxool>
+		<alias>FLM</alias>
+		<driver-url>jdbc:jtds:sqlserver://172.16.30.185:1433/TCBW;SelectMethod=cursor:sendStringAsUnicode=true</driver-url>
+		<driver-class>net.sourceforge.jtds.jdbc.Driver</driver-class>
+		<driver-properties>
+			<property name="user" value="tcbw" />
+			<property name="password" value="kangdainfo" />
+		</driver-properties>
+		<minimum-connection-count>10</minimum-connection-count>		
+		<maximum-connection-count>500</maximum-connection-count>
+		<simultaneous-build-throttle>500</simultaneous-build-throttle>
+		<prototype-count>3</prototype-count>		
+		<maximum-connection-lifetime>21600000</maximum-connection-lifetime>
+		<maximum-active-time>36000000</maximum-active-time>
+		<house-keeping-test-sql>select 1 as one</house-keeping-test-sql>
+	</proxool>
+	 -->	
+	<!-- 化粧品登錄系統  -->	
+	<!--
+	<proxool>
+		<alias>COS</alias>
+		<driver-url>jdbc:jtds:sqlserver://172.16.30.185:1433/TCBW;SelectMethod=cursor:sendStringAsUnicode=true</driver-url>
+		<driver-class>net.sourceforge.jtds.jdbc.Driver</driver-class>
+		<driver-properties>
+			<property name="user" value="tcbw" />
+			<property name="password" value="kangdainfo" />
+		</driver-properties>
+		<minimum-connection-count>10</minimum-connection-count>		
+		<maximum-connection-count>500</maximum-connection-count>
+		<simultaneous-build-throttle>500</simultaneous-build-throttle>
+		<prototype-count>3</prototype-count>		
+		<maximum-connection-lifetime>21600000</maximum-connection-lifetime>
+		<maximum-active-time>36000000</maximum-active-time>
+		<house-keeping-test-sql>select 1 as one</house-keeping-test-sql>
+	</proxool>
+   -->
+</something-else-entirely>

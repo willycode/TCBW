@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--================== Dao ==================-->
+	<bean id="commonAuthDao" class="com.kangdainfo.common.model.dao.hibernate.CommonAuthDaoImpl"/>	    
+	<bean id="commonCodeDao" class="com.kangdainfo.common.model.dao.hibernate.CommonCodeDaoImpl"/>	
+	<bean id="commonCodeKindDao" class="com.kangdainfo.common.model.dao.hibernate.CommonCodeKindDaoImpl"/>	
+	<bean id="commonDtreeDao" class="com.kangdainfo.common.model.dao.hibernate.CommonDtreeDaoImpl"/>
+	<bean id="commonDepartmentDao" class="com.kangdainfo.common.model.dao.hibernate.CommonDepartmentDaoImpl"/>
+	<bean id="commonGroupDao" class="com.kangdainfo.common.model.dao.hibernate.CommonGroupDaoImpl"/>			
+	<bean id="commonNewsDao" class="com.kangdainfo.common.model.dao.hibernate.CommonNewsDaoImpl"/>
+	<bean id="commonUserDao" class="com.kangdainfo.common.model.dao.hibernate.CommonUserDaoImpl"/>
+	<bean id="commonUserRoleDao" class="com.kangdainfo.common.model.dao.hibernate.CommonUserRoleDaoImpl"/>	
+  
+    <!--================== Service ==================-->    
+    <bean id="commonService" class="com.kangdainfo.common.service.impl.CommonServiceImpl">		
+		<property name="subSystems">
+			<list>
+		        <ref bean="s11" />
+		        <ref bean="s99" />
+			</list>
+		</property>
+		    
+		<property name="commonAuthDao">
+			<ref bean="commonAuthDao"/>
+		</property>	    
+		<property name="commonCodeDao">
+			<ref bean="commonCodeDao"/>
+		</property>			
+		<property name="commonCodeKindDao">
+			<ref bean="commonCodeKindDao"/>
+		</property>			
+		<property name="commonDtreeDao">
+			<ref bean="commonDtreeDao"/>
+		</property>
+		<property name="commonDepartmentDao">
+			<ref bean="commonDepartmentDao"/>
+		</property>							
+		<property name="commonGroupDao">
+			<ref bean="commonGroupDao"/>
+		</property>	
+		<property name="commonNewsDao">		
+			<ref bean="commonNewsDao"/>
+		</property>	
+		<property name="commonUserDao">
+			<ref bean="commonUserDao"/>
+		</property>	
+		<property name="commonUserRoleDao">
+			<ref bean="commonUserRoleDao"/>
+		</property>		
+							
+							
+    </bean>	
+
+</beans>
+
+

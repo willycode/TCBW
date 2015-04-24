@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonCodeKind" 
+    table="COMMON_CODEKIND"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Integer"
+        column="id"
+    >
+    
+        <generator class="native">
+        	<param name="sequence">COMMON_CODEKIND_SEQ</param>
+        </generator>
+    </id>
+    
+    <property
+        name="codeKindId"
+        type="java.lang.String"
+        column="codeKindId"
+        unique="true"        
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="codeKindName"
+        type="java.lang.String"
+        column="codeKindName"
+        not-null="true"
+        length="500"
+    />
+    <property
+        name="codeLabelCon1"
+        type="java.lang.String"
+        column="codeLabelCon1"
+        length="100"
+    />
+    <property
+        name="codeLabelCon2"
+        type="java.lang.String"
+        column="codeLabelCon2"
+        length="100"
+    />
+    <property
+        name="codeLabelCon3"
+        type="java.lang.String"
+        column="codeLabelCon3"
+        length="100"
+    />   
+    <property
+        name="memoLabel"
+        type="java.lang.String"
+        column="memoLabel"
+        length="100"
+    /> 
+    <property
+        name="codeMaxLen"
+        type="java.lang.Integer"
+        column="codeMaxLen"
+        length="10"
+    />     
+    <property
+        name="systemType"
+        type="java.lang.String"
+        column="SYSTEMTYPE"
+        length="3"
+    />        
+          
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to CommonCode -->
+
+    <set
+        name="commonCodes"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+		order-by="codeId, id asc"
+    >
+        <key>
+            <column name="codeKindId" />
+        </key>
+        
+        <one-to-many 
+            class="com.kangdainfo.common.model.bo.CommonCode"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

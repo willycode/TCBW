@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class 
+    name="com.kangdainfo.tcbw.model.bo.Export0002Db" 
+    table="EXPORT0002_DB"
+    lazy="false"
+>
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <generator class="native">
+            <param name="sequence">EXPORT0002_DB_SEQ</param>
+        </generator>
+    </id>
+    
+     <many-to-one
+	        name="export0001Db"
+	        class="com.kangdainfo.tcbw.model.bo.Export0001Db"
+	        not-null="true"
+	 >
+	       <column name="export0001_id" />
+	 </many-to-one>
+    
+    
+    <property
+        name="seq"
+        type="int"
+        column="seq"
+    />
+    
+    <property
+        name="field"
+        type="java.lang.String"
+        column="field"
+        length="50"
+    />
+    
+    <property
+        name="manyField"
+        type="java.lang.String"
+        column="manyField"
+        length="50"
+    />
+    
+    
+    <property
+        name="fieldName"
+        type="java.lang.String"
+        column="fieldName"
+        length="150"
+    /> 
+    
+    <property
+        name="tableName"
+        type="java.lang.String"
+        column="tableName"
+        length="50"
+    />
+    
+     <property
+        name="manyName"
+        type="java.lang.String"
+        column="manyName"
+        length="50"
+    />
+    
+    <property
+        name="codeName"
+        type="java.lang.String"
+        column="codeName"
+        length="50"
+    />
+    
+    <property
+        name="isStop"
+        type="java.lang.String"
+        column="isStop"
+        length="1"
+    />
+    
+    <property
+        name="isMany"
+        type="java.lang.String"
+        column="isMany"
+        length="1"
+    />
+    
+    
+    <property
+        name="exception"
+        type="java.lang.String"
+        column="exception"
+        length="50"
+    />
+
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+
+    
+    
+    
+</class>
+</hibernate-mapping>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Hfr0001Db" table="HFR0001_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">HFR0001_DB_SEQ</param>
+            </generator>
+        </id>
+        <property name="hfrType" type="java.lang.String">
+            <column name="hfrType" length="2" />
+        </property>
+        <property name="applNo" type="java.lang.String">
+            <column name="applNo" length="11" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="2" />
+        </property>
+        <property name="occurDate" type="java.lang.String">
+            <column name="occurDate" length="7" />
+        </property>
+        <property name="notifierRevDate" type="java.lang.String">
+            <column name="notifierRevDate" length="7" />
+        </property>
+        <property name="notifierRepDate" type="java.lang.String">
+            <column name="notifierRepDate" length="7" />
+        </property>
+        <property name="notifierName" type="java.lang.String">
+            <column name="notifierName" length="20" />
+        </property>
+        <property name="notifierDept" type="java.lang.String">
+            <column name="notifierDept" length="50" />
+        </property>
+        <property name="notifierDeptId" type="java.lang.String">
+            <column name="notifierDeptId" length="50" />
+        </property>
+        <property name="notifierTel" type="java.lang.String">
+            <column name="notifierTel" length="20" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" length="100" />
+        </property>
+        <property name="notifierEamil" type="java.lang.String">
+            <column name="notifierEamil" length="50" />
+        </property>
+        <property name="notifierIdNum" type="java.lang.String">
+            <column name="notifierIdNum" length="20" />
+        </property>
+        <property name="notifierType" type="java.lang.String">
+            <column name="notifierType" length="2" />
+        </property>
+        <property name="notifierTitle" type="java.lang.String">
+            <column name="notifierTitle" length="2" />
+        </property>
+        <property name="eatersId" type="java.lang.String">
+            <column name="eatersId" length="20" />
+        </property>
+        <property name="eatersName" type="java.lang.String">
+            <column name="eatersName" length="20" />
+        </property>
+        <property name="eatersHight" type="java.lang.String">
+            <column name="eatersHight" length="3" />
+        </property>
+        <property name="eatersWeight" type="java.lang.String">
+            <column name="eatersWeight" length="3" />
+        </property>
+        <property name="eatersAge" type="java.lang.String">
+        	<column name="eatersAge" length="3" />
+        </property>
+        <property name="eatersSex" type="java.lang.String">
+        	<column name="eatersSex" length="1" />
+        </property>
+        <property name="eatersTel" type="java.lang.String">
+        	<column name="eatersTel" length="20" />
+        </property>
+        <property name="eatersBirthYear" type="java.lang.String">
+        	<column name="eatersBirthYear" length="3" />
+        </property>
+        <property name="eatersIdNum" type="java.lang.String">
+        	<column name="eatersIdNum" length="20" />
+        </property>
+        <property name="unHealthIsYes" type="java.lang.String">
+        	<column name="unHealthIsYes" length="1" />
+        </property>
+        <property name="unHealthBrief" type="java.lang.String">
+        	<column name="unHealthBrief" length="100" />
+        </property>
+        <property name="unReactionResults" type="java.lang.String">
+        	<column name="unReactionResults" length="50" />
+        </property>
+        <property name="deathDate" type="java.lang.String">
+        	<column name="deathDate" length="7" />
+        </property>
+        <property name="deathResult" type="java.lang.String">
+        	<column name="deathResult" length="50" />
+        </property>
+        <property name="endangerLife" type="java.lang.String">
+        	<column name="endangerLife" length="50" />
+        </property>
+        <property name="otherNonResponse" type="java.lang.String">
+        	<column name="otherNonResponse" length="50" />
+        </property>
+        <property name="otherrElevantInformation" type="java.lang.String">
+        	<column name="otherrElevantInformation" length="50" />
+        </property>
+        <property name="allergicDescription" type="java.lang.String">
+        	<column name="allergicDescription" length="50" />
+        </property>
+        <property name="othersDescribeHistory" type="java.lang.String">
+        	<column name="othersDescribeHistory" length="50" />
+        </property>
+        <property name="occurredAfter" type="java.lang.String">
+        	<column name="occurredAfter" length="200" />
+        </property>
+        <property name="symptom" type="java.lang.String">
+        	<column name="symptom" length="200" />
+        </property>
+        <property name="severity" type="java.lang.String">
+        	<column name="severity" length="200" />
+        </property>
+        <property name="symptomDuration" type="java.lang.String">
+        	<column name="symptomDuration" length="200" />
+        </property>
+        <property name="stopEatingReaction" type="java.lang.String">
+        	<column name="stopEatingReaction" length="200" />
+        </property>
+        <property name="againEatingReaction" type="java.lang.String">
+        	<column name="againEatingReaction" length="1" />
+        </property>
+        <property name="againEatingHealthFood" type="java.lang.String">
+        	<column name="againEatingHealthFood" length="1" />
+        </property>
+        <property name="healthFoodName" type="java.lang.String">
+        	<column name="healthFoodName" length="50" />
+        </property>
+        <property name="againOtherNonResponse" type="java.lang.String">
+        	<column name="againOtherNonResponse" length="50" />
+        </property>
+        <property name="isMedical" type="java.lang.String">
+        	<column name="isMedical" length="1" />
+        </property>
+        <property name="medicalDate" type="java.lang.String">
+        	<column name="medicalDate" length="7" />
+        </property>
+        <property name="hospital" type="java.lang.String">
+        	<column name="hospital" length="50" />
+        </property>
+        <property name="isWhileMedicine" type="java.lang.String">
+        	<column name="isWhileMedicine" length="1" />
+        </property>
+        <property name="westDrugName" type="java.lang.String">
+        	<column name="westDrugName" length="50" />
+        </property>
+        <property name="isWhileCMedicine" type="java.lang.String">
+        	<column name="isWhileCMedicine" length="1" />
+        </property>
+        <property name="eastDrugName" type="java.lang.String">
+        	<column name="eastDrugName" length="50" />
+        </property>
+        <property name="isWhileOther" type="java.lang.String">
+        	<column name="isWhileOther" length="1" />
+        </property>
+        <property name="productName" type="java.lang.String">
+        	<column name="productName" length="50" />
+        </property>
+        <property name="otherExplainMemo" type="java.lang.String">
+        	<column name="otherExplainMemo" length="255" />
+        </property>
+        <property name="drugAllergies" type="java.lang.String">
+        	<column name="drugAllergies" length="1" />
+        </property>
+        <property name="foodAllergies" type="java.lang.String">
+        	<column name="foodAllergies" length="1" />
+        </property>
+        <property name="diseaseHistory" type="java.lang.String">
+        	<column name="diseaseHistory" length="20" />
+        </property>
+        <property name="lifeHistory" type="java.lang.String">
+        	<column name="lifeHistory" length="20" />
+        </property>
+        <property name="isReactionResult" type="java.lang.String">
+        	<column name="isReactionResult" length="1" />
+        </property>
+        <property name="informedSources" type="java.lang.String">
+            <column name="informedSources" length="1" />
+        </property>
+        <property name="additionalDate" type="java.lang.String">
+            <column name="additionalDate" length="7" />
+        </property>
+        <property name="additionalFinshDate" type="java.lang.String">
+            <column name="additionalFinshDate" length="7" />
+        </property>
+        <property name="assignMan" type="java.lang.String">
+            <column name="assignMan" length="50" />
+        </property>
+        <property name="enrolledDate" type="java.lang.String">
+            <column name="enrolledDate" length="7" />
+        </property>
+        <property name="medicalPostingDate" type="java.lang.String">
+            <column name="medicalPostingDate" length="7" />
+        </property>
+        <property name="medicalCompleteDate" type="java.lang.String">
+            <column name="medicalCompleteDate" length="7" />
+        </property>
+        <property name="inspectPostingDate" type="java.lang.String">
+            <column name="inspectPostingDate" length="7" />
+        </property>
+        <property name="inspectCompleteDate" type="java.lang.String">
+            <column name="inspectCompleteDate" length="7" />
+        </property>
+        <property name="unExpectedClassify" type="java.lang.String">
+            <column name="unExpectedClassify" length="10" />
+        </property>
+        <property name="unExpectedReason" type="java.lang.String">
+            <column name="unExpectedReason" length="20" />
+        </property>
+        <property name="evidentiary" type="java.lang.String">
+            <column name="evidentiary" length="10" />
+        </property>
+        <property name="recentlySeverity" type="java.lang.String">
+            <column name="recentlySeverity" length="10" />
+        </property>
+        <property name="administrativeLevel" type="java.lang.String">
+            <column name="administrativeLevel" length="10" />
+        </property>
+        <property name="drugOther" type="java.lang.String">
+            <column name="drugOther" length="50" />
+        </property>
+        <property name="foodOther" type="java.lang.String">
+            <column name="foodOther" length="50" />
+        </property>
+        <property name="diseaseOther" type="java.lang.String">
+            <column name="diseaseOther" length="50" />
+        </property>
+        <property name="lifeOther" type="java.lang.String">
+            <column name="lifeOther" length="50" />
+        </property>
+        <property name="notifierTelArea" type="java.lang.String">
+            <column name="notifierTelArea" length="2" />
+        </property>
+        <property name="notifierTelExt" type="java.lang.String">
+            <column name="notifierTelExt" length="3" />
+        </property>
+        <property name="notifierArea" type="java.lang.String">
+            <column name="notifierArea" length="2" />
+        </property>
+        <property name="notifierZipCode" type="java.lang.String">
+            <column name="notifierZipCode" length="5" />
+        </property>
+        <property name="eatersTelArea" type="java.lang.String">
+            <column name="eatersTelArea" length="2" />
+        </property>
+        <property name="eatersTelExt" type="java.lang.String">
+            <column name="eatersTelExt" length="3" />
+        </property>
+        
+        <property name="reactionremark" type="java.lang.String">
+            <column name="reactionremark" length="4000" />
+        </property>
+       <property name="eventsymptom" type="java.lang.String">
+            <column name="eventsymptom" length="4000" />
+        </property>
+        <property name="eventdesc" type="java.lang.String">
+            <column name="eventdesc" length="4000" />
+        </property>
+        <property name="eventdeal" type="java.lang.String">
+            <column name="eventdeal" length="4000" />
+        </property>
+        <property name="drexamdesc" type="java.lang.String">
+            <column name="drexamdesc" length="4000" />
+        </property>
+        
+        <property name="reactionnewlymed" type="java.lang.String">
+            <column name="reactionnewlymed" length="4000" />
+        </property>
+        <property name="seadoctordesc" type="java.lang.String">
+            <column name="seadoctordesc" length="4000" />
+        </property>
+
+        <property name="hfr4001DbId" type="java.lang.Long">
+            <column name="hfr4001DbId" scale="0" />
+        </property>
+        <property name="caseOwner" type="java.lang.String">
+            <column name="caseOwner" length="50" />
+        </property>
+        <property name="trans" type="java.lang.String">
+            <column name="trans" length="1" />
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+        
+ 		<set name="hfr0002Dbs" lazy="true" inverse="true" cascade="all" order-by="permitKey">
+			<key>
+				<column name="hfr0001_id" />
+			</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Hfr0002Db" />
+		</set>
+ 		<set name="hfr0003Dbs" lazy="true" inverse="true" cascade="all" order-by="id">
+			<key>
+				<column name="hfr0001_id" />
+			</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Hfr0003Db" />
+		</set> 		
+		<set name="hfr0004Dbs" lazy="true" inverse="true" cascade="all" order-by="id">
+			<key>
+				<column name="hfr0001_id" />
+			</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Hfr0004Db" />
+		</set>
+		<set name="hfr0005Dbs" lazy="true" inverse="true" cascade="all" order-by="id">
+			<key>
+				<column name="hfr0001_id" />
+			</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Hfr0005Db" />
+		</set>
+		<set name="hfr0006Dbs" lazy="true" inverse="true" cascade="all" order-by="id">
+			<key>
+				<column name="hfr0001_id" />
+			</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Hfr0006Db" />
+		</set>
+		<set name="hfr0007Dbs" lazy="true" inverse="true" cascade="all" order-by="id">
+			<key>
+				<column name="hfr0001_id" />
+			</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Hfr0007Db" />
+		</set>
+    </class>
+</hibernate-mapping>

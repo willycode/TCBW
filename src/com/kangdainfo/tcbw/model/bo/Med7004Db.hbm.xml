@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+   <class 
+    name="com.kangdainfo.tcbw.model.bo.Med7004Db" 
+    table="MED7004_DB"
+    lazy="false"
+   >
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+        <generator class="native">
+            <param name="sequence">MED7004_DB_SEQ</param>
+        </generator>
+    </id>
+     <property 
+  		column="applicationID" 
+   		length="20" 
+   		name="applicationID" 
+   		type="java.lang.String"
+    />
+    <property 
+  		column="applicationName" 
+   		length="100" 
+   		name="applicationName" 
+   		type="java.lang.String"
+    />
+    <property
+        name="noticetranslatedate"
+        type="java.lang.String"
+        column="noticetranslatedate"
+        length="7"
+    />    
+    <property
+        name="checktranslatedate"
+        type="java.lang.String"
+        column="checktranslatedate"
+        length="7"
+    />    
+    <property
+        name="checkcontextdesc"
+        type="java.lang.String"
+        column="checkcontextdesc"
+        length="150"
+    />    
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="6"
+    />
+    <set name="med7002Dbs" lazy="true" inverse="true" order-by="id" cascade="all">
+		<key>
+			<column name="med7004_id" />
+		</key>
+		<one-to-many class="com.kangdainfo.tcbw.model.bo.Med7002Db"/>
+	</set>
+    <many-to-one name="med7001Db" class="com.kangdainfo.tcbw.model.bo.Med7001Db" >
+            <column name="med7001_id" not-null="true"  />
+    </many-to-one>
+</class>
+</hibernate-mapping>

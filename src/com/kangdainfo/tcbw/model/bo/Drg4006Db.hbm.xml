@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Drg4006Db" table="DRG4006_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">DRG4006_DB_SEQ</param>
+            </generator>
+        </id>
+        
+		<property name="manufactorID" type="java.lang.String">
+            <column name="manufactorID" length="10" />
+        </property>
+        <property name="permitKey2" type="java.lang.String">
+            <column name="permitKey2" length="2" />
+        </property>
+        <property name="permitNo2" type="java.lang.String">
+            <column name="permitNo2" length="14" />
+        </property>
+		<property name="productName2" type="java.lang.String">
+            <column name="productName2" length="100" />
+        </property>
+		<property name="replyDate" type="java.lang.String">
+            <column name="replyDate" length="7" />
+        </property>
+		<property name="review1" type="java.lang.String">
+            <column name="review1" length="500" />
+        </property>
+		<property name="review2" type="java.lang.String">
+            <column name="review2" length="500" />
+        </property>
+		<property name="review3" type="java.lang.String">
+            <column name="review3" length="500" />
+        </property>
+		<property name="review4" type="java.lang.String">
+            <column name="review4" length="500" />
+        </property>
+		<property name="review5" type="java.lang.String">
+            <column name="review5" length="500" />
+        </property>
+        <property name="review6" type="java.lang.String">
+            <column name="review6" length="500" />
+        </property>
+        <property name="isClose" type="java.lang.String">
+            <column name="isClose" length="1" />
+        </property>
+        <property name="receiveSystem" type="java.lang.String">
+            <column name="receiveSystem" length="50" />
+        </property>
+        <property name="receiveDate" type="java.lang.String">
+            <column name="receiveDate" length="7" />
+        </property>
+        <property name="receiveTime" type="java.lang.String">
+            <column name="receiveTime" length="6" />            
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+    	<set name="drg4010Dbs" lazy="true" inverse="true" cascade="all" order-by="id">
+			<key>
+				<column name="drg4006_id" />
+			</key>
+			<one-to-many class="com.kangdainfo.tcbw.model.bo.Drg4010Db" />
+		</set>
+    </class>
+</hibernate-mapping>

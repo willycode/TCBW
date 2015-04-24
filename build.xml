@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="tcbw" default="compile.tcbw" basedir=".">
+
+	<property file="build.properties"/>
+
+	<path id="classpath">
+		<pathelement location="${dir.base}"/>
+		<pathelement location="${dir.tcbw.webapps.ap.webinf.classes}"/>
+		<fileset dir="${dir.lib}">
+			<include name="*.jar" />
+			<include name="*.zip" />
+		</fileset>
+		<fileset dir="${dir.tcbw.webapps.ap.webinf.lib}">
+			<include name="*.jar" />
+			<include name="*.zip" />
+		</fileset>
+	</path>
+	<path id="classpath.tcbw.run">
+		<pathelement location="${dir.tcbw.webapps.ap.webinf.classes}"/>
+	</path>
+	<path id="classpath.ant">
+	</path>
+
+	<taskdef name="jsmin" classname="net.matthaynes.jsmin.JSMin_Task" classpath="${dir.lib}/jsmin.jar"/>
+	<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask"/>
+	<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask"/>
+
+	<target name="clean.tcbw">
+		<delete dir="${dir.tcbw.webapps.ap.webinf.classes}" />
+		<mkdir dir="${dir.tcbw.webapps.ap.webinf.classes}" />
+	</target>
+
+	<target name="compile.tcbw" depends="clean.tcbw">
+		<mkdir dir="${dir.tcbw.webapps.ap.webinf.classes}" />
+		<javac target="1.5" memoryMaximumSize="${javac.memoryMaximumSize}" fork="true" debug="true" encoding="UTF-8"
+			destdir="${dir.tcbw.webapps.ap.webinf.classes}" includes="**/*.java">
+			<classpath refid="classpath"/>
+			<src path="${dir.src}"/>
+		</javac>
+		<antcall target="copy.non.java.tcbw"/>
+	</target>
+	<target name="copy.non.java.tcbw">
+		<echo>|======================================|</echo>
+		<echo>|======== Copy Non-JAVA Files ========|</echo>
+		<echo>|======================================|</echo>
+		<copy todir="${dir.tcbw.webapps.ap.webinf.classes}">
+			<fileset dir="${dir.src}">
+				<include name="**"/>
+				<exclude name="**/.svn"/>
+				<include name="**/*.xml"/>
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="tcbw.war" depends="compile.tcbw">
+		<delete dir="${dir.dist.war.tcbw}" />
+		<copy todir="${dir.dist.war.tcbw}">
+			<fileset dir="${dir.tcbw.webapps.ap}">
+				<include name="**"/>
+				<exclude name="**/.svn"/>
+			</fileset>
+		</copy>
+		<!-- jsmin error for dtree.js
+		<jsmin destdir="${dir.dist.war.tcbw}/js" force="true">
+		       <fileset dir="${dir.tcbw.webapps.ap}/js" includes="**/*.js"/>
+		</jsmin>
+		-->
+		<jar jarfile="${dir.dist.war.tcbw}/WEB-INF/lib/${jar.filename.tcbw}">
+			<fileset dir="${dir.dist.war.tcbw.webinf.classes}">
+				<include name="**"/>
+				<exclude name="*.properties"/>
+			</fileset>
+		</jar>
+		<delete dir="${dir.dist.war.tcbw.webinf.classes}" />
+		<mkdir dir="${dir.dist.war.tcbw.webinf.classes}" />
+		<copy todir="${dir.dist.war.tcbw.webinf.classes}">
+			<fileset dir="${dir.tcbw.webapps.ap.webinf.classes}">
+				<include name="*.properties"/>
+			</fileset>
+		</copy>
+		<zip destfile="${dir.dist.war}/${war.fileName.tcbw}" encoding="UTF-8" basedir="${dir.dist.war.tcbw}"/>
+	</target>
+
+	<target name="tcbw_small.war" depends="compile.tcbw">
+		<delete dir="${dir.dist.war.tcbw}" />
+		<copy todir="${dir.dist.war.tcbw}">
+			<fileset dir="${dir.tcbw.webapps.ap}">
+				<include name="**"/>
+				<exclude name="**/.svn"/>
+			</fileset>
+		</copy>
+		<delete>
+			<fileset dir="${dir.dist.war.tcbw.webinf.lib}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</delete>
+		<delete dir="${dir.dist.war.tcbw.webinf.classes}" />
+		<mkdir dir="${dir.dist.war.tcbw.webinf.classes}" />
+		<copy todir="${dir.dist.war.tcbw.webinf.classes}">
+			<fileset dir="${dir.tcbw.webapps.ap.webinf.classes}">
+				<include name="**"/>
+			</fileset>
+		</copy>
+		<zip destfile="${dir.dist.war}/${war.fileName.tcbw}" basedir="${dir.dist.war.tcbw}"/>
+	</target>
+
+	<target name="ascii2native">
+		<native2ascii reverse="true" src="remote_ascii"  dest="remote_native" includes="*.java" />
+		<!--
+		<mkdir dir="ascii2nativeDir" />
+		<native2ascii reverse="true" src="."  dest="ascii2nativeDir" includes="ascii.txt" />
+		<copy file="ascii2nativeDir/ascii.txt" toFile="native.txt" />
+		<delete dir="ascii2nativeDir" />
+		-->
+	</target>
+
+	<target name="clean">
+		<delete dir="${dir.build}" />
+		<antcall target="clean.tcbw"/>
+		<delete dir="${dir.tcbw.webapps.ap.webinf}/attachments" />
+		<delete file="hibernate.log" />
+		<delete file="schemaupdate_script.sql" />
+		<delete file="${dir.resource.datamodel.db2.tcbw}/configure-schemaExport-db2.sql" />
+		<delete file="${dir.resource.datamodel.db2.tcbw}/not-enforced-schemaExport-db2.sql" />
+	</target>
+
+	<target name="build">
+		<antcall target="compile.tcbw"/>
+	</target>
+
+	<target name="clean.all">
+		<delete dir="deployer/build" />
+		<antcall target="clean"/>
+	</target>
+
+	<target name="tcbw.deploy19" depends="tcbw.war">
+		<echo></echo>
+		<echo>|======================================|</echo>
+	  	<echo>|===========Deploying...172.16.30.19===========|</echo>
+	  	<echo>|======================================|</echo>
+	  	<echo></echo>
+		  <deploy url="http://172.16.30.20:8080/manager" username="tcbwuser" password="kangdainfo" path="/tcbw" war="${dir.dist.war}/tcbw.war" update="true"/>
+	</target>
+	<target name="tcbw.deploy_localhost" depends="tcbw.war">
+		<echo></echo>
+		<echo>|======================================|</echo>
+	  	<echo>|===========Deploying...localhost==========|</echo>
+	  	<echo>|======================================|</echo>
+	  	<echo></echo>
+		  <deploy url="http://127.0.0.1:8080/manager" username="tcbwuser" password="kangdainfo" path="/tcbw" war="${dir.dist.war}/${war.fileName.tcbw}" update="true"/>
+	</target>
+	
+	<target name="tcbw.deploy_only_localhost">
+		<echo></echo>
+		<echo>|======================================|</echo>
+	  	<echo>|===========Deploying...localhost==========|</echo>
+	  	<echo>|======================================|</echo>
+	  	<echo></echo>
+		  <deploy url="http://127.0.0.1:8080/manager" username="tcbwuser" password="kangdainfo" path="/tcbw" war="${dir.dist.war}/${war.fileName.tcbw}" update="true"/>
+	</target>
+	
+	<target name="schema.mssql.tcbw" depends="forceIncrement2Native" description="Generate DB schema from the O/R mapping files">
+		<schemaexport
+			properties="${dir.resource.datamodel.mssql.tcbw}/hibernate-mssql.properties"
+			quiet="no"
+			text="${schemaexport.text.mssql.tcbw}"
+			drop="${schemaexport.drop.mssql.tcbw}"
+			create="${schemaexport.create.mssql.tcbw}"
+			delimiter=";"
+			output="${dir.resource.datamodel.mssql.tcbw}/schemaExport-mssql.sql"
+			>
+			<fileset dir="${dir.tcbw.webapps.ap.webinf.classes}">
+				<exclude name="**/.svn"/>
+				<include name="**/*.hbm.xml"/>
+				<exclude name="**/OldSentence.hbm.xml"/>
+				<exclude name="**/OldPayment.hbm.xml"/>
+				<exclude name="**/OldWriteOffData.hbm.xml"/>
+				<exclude name="**/OldWriteOffError.hbm.xml"/>
+				<exclude name="**/OldReceipt.hbm.xml"/>
+				<exclude name="**/OldDepartmentSubject.hbm.xml"/>
+			</fileset>
+		</schemaexport>
+	</target>
+			<target name="schema.db2.tcbw" depends="forceIncrement2Native" description="Generate DB schema from the O/R mapping files">
+				<schemaexport
+					properties="${dir.resource.datamodel.db2.tcbw}/hibernate-db2.properties"
+					quiet="no"
+					text="${schemaexport.text.db2.tcbw}"
+					drop="${schemaexport.drop.db2.tcbw}"
+					create="${schemaexport.create.db2.tcbw}"
+					delimiter=";"
+					output="${dir.resource.datamodel.db2.tcbw}/schemaExport-db2.sql"
+					>
+					<fileset dir="${dir.tcbw.webapps.ap.webinf.classes}">
+						<exclude name="**/.svn"/>
+						<include name="**/*.hbm.xml"/>
+						<exclude name="**/OldSentence.hbm.xml"/>
+						<exclude name="**/OldPayment.hbm.xml"/>
+						<exclude name="**/OldWriteOffData.hbm.xml"/>
+						<exclude name="**/OldWriteOffError.hbm.xml"/>
+						<exclude name="**/OldReceipt.hbm.xml"/>
+						<exclude name="**/OldDepartmentSubject.hbm.xml"/>
+					</fileset>
+				</schemaexport>
+				<replace file="${dir.resource.datamodel.db2.tcbw}/schemaExport-db2.sql" token="2147483647" value="1073741824"/>
+				<replace file="${dir.resource.datamodel.db2.tcbw}/schemaExport-db2.sql" token="${token.db2.blob}" value="${value.db2.blob}"/>
+
+				<antcall target="dmlDb2ConfigureDeployment"/>
+			</target>
+			<target name="forceIncrement2Native" depends="copy.non.java.tcbw">
+
+				<taskdef name="searchAndReplace" classname="com.kangdainfo.util.ant.SearchAndReplaceTask" classpathref="classpath.ant"  />
+				<searchAndReplace showFileSets="false" searchOnly="false"
+					token="${token.hibernate.increment}" value="${token.hibernate.native}"
+					resultFile="hibernate.log"
+					>
+
+					<fileset dir="${dir.src}">
+						<exclude name="**/.svn"/>
+						<include name="**/*.hbm.xml"/>
+					</fileset>
+
+				</searchAndReplace>
+			</target>
+
+
+			<target name="dmlDb2ConfigureDeployment">
+				<taskdef name="dmlDb2ConfigureDeployment" classname="com.kangdainfo.tools.ant.taskdefs.database.DmlDb2ConfigureDeploymentTask" classpathref="classpath.ant"  />
+				<dmlDb2ConfigureDeployment configFile="${dir.resource.datamodel.db2.tcbw}/config-db2.properties" >
+					<fileset dir="${dir.resource.datamodel.db2.tcbw}">
+						<include name="schemaExport-db2.sql"/>
+					</fileset>
+				</dmlDb2ConfigureDeployment>
+				<antcall target="dmlDb2NotEnforced"/>
+			</target>
+			<target name="dmlDb2NotEnforced">
+				<taskdef name="dmlDb2NotEnforced" classname="com.kangdainfo.tools.ant.taskdefs.database.DmlDb2NotEnforcedTask" classpathref="classpath.ant"  />
+				<dmlDb2NotEnforced configFile="${dir.resource.datamodel.db2.tcbw}/config-db2.properties" >
+					<fileset dir="${dir.resource.datamodel.db2.tcbw}">
+						<include name="configure-schemaExport-db2.sql"/>
+					</fileset>
+				</dmlDb2NotEnforced>
+			</target>
+
+
+			<target name="db2-to-mssql">
+				<taskdef name="dmlConverter" classname="com.kangdainfo.tools.ant.taskdefs.database.DmlConverterTask" classpathref="classpath.ant"  />
+				<dmlConverter fromDbVendor="ibm-db2" toDbVendor="ms-sql">
+					<fileset dir="${dir.resource.datamodel.db2.tcbw}">
+						<include name="minimum.sql"/>
+					</fileset>
+				</dmlConverter>
+			</target>
+			<target name="dmlIdentityConverter">
+				<taskdef name="dmlIdentityConverter" classname="com.kangdainfo.tools.ant.taskdefs.database.DmlIdentityConverterTask" classpathref="classpath.ant"  />
+				<dmlIdentityConverter >
+					<fileset dir="${dir.resource.datamodel.db2.tcbw}">
+						<include name="minimum.sql"/>
+					</fileset>
+				</dmlIdentityConverter>
+			</target>
+			<target name="dmlIdentityRestarter">
+				<taskdef name="dmlIdentityRestarter" classname="com.kangdainfo.tools.ant.taskdefs.database.DmlIdentityRestarterTask" classpathref="classpath.ant"  />
+				<dmlIdentityRestarter vendorType="ibm-db2" >
+					<fileset dir="${dir.resource.datamodel.db2.tcbw}">
+						<include name="schemaExport-db2.sql"/>
+					</fileset>
+				</dmlIdentityRestarter>
+			</target>
+
+			<target name="schemaupdate-mssql">
+				<taskdef name="schemaupdate"
+					classname="org.hibernate.tool.hbm2ddl.SchemaUpdateTask"
+					classpathref="classpath"/>
+
+					<schemaupdate
+						properties="${dir.resource.datamodel.mssql.tcbw}/hibernate-mssql.properties"
+						text="yes"
+						quiet="no">
+						<fileset dir="${dir.src}">
+							<exclude name="**/.svn"/>
+							<include name="**/*.hbm.xml"/>
+							<exclude name="**/OldSentence.hbm.xml"/>
+							<exclude name="**/OldPayment.hbm.xml"/>
+							<exclude name="**/OldWriteOffData.hbm.xml"/>
+							<exclude name="**/OldWriteOffError.hbm.xml"/>
+							<exclude name="**/OldReceipt.hbm.xml"/>
+							<exclude name="**/OldDepartmentSubject.hbm.xml"/>
+						</fileset>
+					</schemaupdate>
+				</target>
+				<target name="schemaupdate-db2">
+					<taskdef name="schemaupdate"
+						classname="org.hibernate.tool.hbm2ddl.SchemaUpdateTask"
+						classpathref="classpath"/>
+
+						<schemaupdate
+							properties="${dir.resource.datamodel.db2.tcbw}/hibernate-db2.properties"
+							text="yes"
+							quiet="no">
+							<fileset dir="${dir.src}">
+								<exclude name="**/.svn"/>
+								<include name="**/*.hbm.xml"/>
+								<exclude name="**/OldSentence.hbm.xml"/>
+								<exclude name="**/OldPayment.hbm.xml"/>
+								<exclude name="**/OldWriteOffData.hbm.xml"/>
+								<exclude name="**/OldWriteOffError.hbm.xml"/>
+								<exclude name="**/OldReceipt.hbm.xml"/>
+								<exclude name="**/OldDepartmentSubject.hbm.xml"/>
+								<exclude name="**/QueryHelperTest.hbm.xml"/>
+							</fileset>
+						</schemaupdate>
+					</target>
+					<target name="schemavalidate-mssql">
+						<taskdef name="schemavalidator"
+							classname="org.hibernate.tool.hbm2ddl.SchemaValidatorTask"
+							classpathref="classpath"/>
+
+							<schemavalidator
+								properties="resource/datamodel/mssql/hibernate-mssql.properties">
+								<fileset dir="${dir.src}">
+									<exclude name="**/.svn"/>
+									<include name="**/*.hbm.xml"/>
+								</fileset>
+							</schemavalidator>
+						</target>
+
+
+						<target name="changeMenuConfigTitle">
+
+							<echo>${dir.src.tcbw.java.web.resources.source}</echo>
+
+							<taskdef name="searchAndReplace" classname="com.kangdainfo.tools.ant.taskdefs.SearchAndReplaceTask" classpathref="classpath.ant"  />
+							<searchAndReplace showFileSets="false" searchOnly="false"
+								resultFile="changeMenuConfigTitle.log"
+								tokenValueFile="changeMenuConfigTitle.properties"
+								>
+								<!--
+								<fileset dir="${dir.src.tcbw.java.web.resources.source}">
+								<exclude name="**/.svn"/>
+								<include name="**/*.properties"/>
+								</fileset>
+								-->
+
+								<fileset dir="${dir.tcbw.webapps.ap}/main/fine">
+									<exclude name="**/.svn"/>
+									<include name="**/*.jsp"/>
+								</fileset>
+								<fileset dir="${dir.tcbw.webapps.ap}/main/incomereceipt">
+									<exclude name="**/.svn"/>
+									<include name="**/*.jsp"/>
+								</fileset>
+								<fileset dir="${dir.tcbw.webapps.ap}/main/bulletin">
+									<exclude name="**/.svn"/>
+									<include name="**/*.jsp"/>
+								</fileset>
+							</searchAndReplace>
+						</target>
+</project>

@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.kangdainfo.common.model.bo.CommonMsg" 
+    table="COMMON_MSG"
+    lazy="false"
+>
+
+    <id
+        name="id"
+        type="java.lang.Long"
+        column="id"
+    >
+    
+        <generator class="native">
+            <param name="sequence">COMMON_MSG_SEQ</param>
+        </generator>
+    </id>
+
+    <property
+        name="startDate"
+        type="java.lang.String"
+        column="startDate"
+        length="7"
+    />
+    <property
+        name="startTime"
+        type="java.lang.String"
+        column="startTime"
+        length="6"
+    />
+    <property
+        name="endDate"
+        type="java.lang.String"
+        column="endDate"
+        length="7"
+    />
+    <property
+        name="endTime"
+        type="java.lang.String"
+        column="endTime"
+        length="6"
+    />
+    <property
+        name="isOpen"
+        type="java.lang.String"
+        column="isOpen"
+        length="1"
+    />
+    <property
+        name="deptCode"
+        type="java.lang.String"
+        column="deptCode"
+        length="10"
+    />
+    <property
+        name="userId"
+        type="java.lang.String"
+        column="userId"
+        length="50"
+    />
+    <property
+        name="msgBody"
+        type="java.lang.String"
+        column="msgBody"
+        length="2000"
+    />
+    <property
+        name="msgSender"
+        type="java.lang.String"
+        column="msgSender"
+        length="50"
+    />
+    <property
+        name="editId"
+        type="java.lang.String"
+        column="editID"
+        length="50"
+    />
+    <property
+        name="editDate"
+        type="java.lang.String"
+        column="editDate"
+        length="7"
+    />
+    <property
+        name="editTime"
+        type="java.lang.String"
+        column="editTime"
+        length="6"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to CommonMsgGroup -->
+
+    <set
+        name="commonMsgGroups"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="msgId" />
+        </key>
+        
+        <one-to-many 
+            class="com.kangdainfo.common.model.bo.CommonMsgGroup"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

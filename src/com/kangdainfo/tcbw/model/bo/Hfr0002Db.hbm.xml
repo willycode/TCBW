@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.kangdainfo.tcbw.model.bo.Hfr0002Db" table="HFR0002_DB">
+        <id name="id" type="java.lang.Long">
+            <column name="id" scale="0" />
+            <generator class="native">
+            	<param name="sequence">HFR0002_DB_SEQ</param>
+            </generator>
+        </id> 
+        
+        <many-to-one
+	        name="hfr0001Db"
+	        class="com.kangdainfo.tcbw.model.bo.Hfr0001Db"
+	        not-null="true"
+	    >
+	        <column name="hfr0001_id" />
+	    </many-to-one>
+	    
+        <property name="permitKey" type="java.lang.String">
+            <column name="permitKey" length="2" />
+        </property>
+        <property name="permitNo" type="java.lang.String">
+            <column name="permitNo" length="30" />
+        </property>
+        <property name="chProduct" type="java.lang.String">
+            <column name="chProduct" length="100" />
+        </property>
+        <property name="enProduct" type="java.lang.String">
+            <column name="enProduct" length="100" />
+        </property>
+        <property name="ingredient" type="java.lang.String">
+            <column name="ingredient" length="50" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" length="20" />
+        </property>
+        <property name="doseDay" type="java.lang.String">
+            <column name="doseDay" length="2" />
+        </property>
+        <property name="doseNum" type="java.lang.String">
+            <column name="doseNum" length="2" />
+        </property>
+        <property name="edibleDateS" type="java.lang.String">
+            <column name="edibleDateS" length="7" />
+        </property>
+        <property name="edibleDateE" type="java.lang.String">
+            <column name="edibleDateE" length="7" />
+        </property>
+        <property name="buySource" type="java.lang.String">
+            <column name="buySource" length="20" />
+        </property>
+        <property name="brand" type="java.lang.String">
+            <column name="brand" length="20" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="type" length="1" />
+        </property>
+        <property name="medModel" type="java.lang.String">
+            <column name="medModel" length="2" />
+        </property>
+        <property name="creator" type="java.lang.String">
+            <column name="creator" length="50" />
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate" length="7" />
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="createTime" length="6" />            
+        </property>
+        <property name="modifier" type="java.lang.String">
+            <column name="modifier" length="50" />
+        </property>
+        <property name="modifyDate" type="java.lang.String">
+            <column name="modifyDate" length="7" />
+        </property>
+        <property name="modifyTime" type="java.lang.String">
+            <column name="modifyTime" length="6" />            
+        </property>
+        <property name="frequency" type="java.lang.String">
+            <column name="frequency" length="3" />
+        </property>
+        <property name="frequencyUnit" type="java.lang.String">
+            <column name="frequencyUnit" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

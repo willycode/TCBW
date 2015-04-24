@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- ==================== Hibernate Session Factory ==================== -->	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" lazy-init="true" >
+	
+	   <property name="lobHandler"> 
+	      <ref bean="defaultLobHandler" /> 
+	   </property> 
+
+		<property name="dataSource" ref="dataSource" />
+		
+		<!-- 傳統的HBM Mapping放置位置 -->
+		<property name="mappingResources">
+			<list>            	
+            	<!-- Common Tables -->
+            	<value>com/kangdainfo/common/model/bo/CommonDtree.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonDepartment.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonUser.hbm.xml</value>
+	           	<value>com/kangdainfo/common/model/bo/CommonUserRole.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonCodeKind.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonCode.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonNews.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonNewsLog.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonAuth.hbm.xml</value>	
+            	<value>com/kangdainfo/common/model/bo/CommonGroup.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonUserGroup.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonConfig.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonVersion.hbm.xml</value>   
+            	
+            	<value>com/kangdainfo/common/model/bo/CommonVisitLogDetail.hbm.xml</value>       	
+            	<value>com/kangdainfo/common/model/bo/CommonVisitLogWeek.hbm.xml</value>            	
+            	<value>com/kangdainfo/common/model/bo/CommonAuditLog.hbm.xml</value>        	
+            	<value>com/kangdainfo/common/model/bo/CommonAuditLogHistory.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonMsg.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonMsgGroup.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonMsgLog.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/CommonLog.hbm.xml</value>
+            	<value>com/kangdainfo/common/model/bo/EmailLog.hbm.xml</value>
+            	 
+            	<value>com/kangdainfo/tcbw/model/bo/Sys0001Db.hbm.xml</value>
+   
+   				<value>com/kangdainfo/tcbw/model/bo/Hfr0001Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr0002Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr0003Db.hbm.xml</value>
+   				<value>com/kangdainfo/tcbw/model/bo/Hfr0004Db.hbm.xml</value>
+   				<value>com/kangdainfo/tcbw/model/bo/Hfr0005Db.hbm.xml</value>
+   				<value>com/kangdainfo/tcbw/model/bo/Hfr0006Db.hbm.xml</value>
+   				<value>com/kangdainfo/tcbw/model/bo/Hfr0007Db.hbm.xml</value>
+            	
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr1001Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr1002Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr1003Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr1004Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr1005Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr1006Db.hbm.xml</value>
+            	
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr4001Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr4002Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Hfr4003Db.hbm.xml</value>
+   				<value>com/kangdainfo/tcbw/model/bo/Hfr4004Db.hbm.xml</value>
+            	
+            	<value>com/kangdainfo/tcbw/model/bo/Con0001Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Con0002Db.hbm.xml</value>
+            	<value>com/kangdainfo/tcbw/model/bo/Con0003Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Con0004Db.hbm.xml</value>
+
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1003Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1004Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1005Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1006Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1007Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1008Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1009Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1010Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1011Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1012Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Con1013Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Con1014Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Con1015Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Con1016Db.hbm.xml</value>
+                
+                <value>com/kangdainfo/tcbw/model/bo/Con2001Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Con2002Db.hbm.xml</value>
+ 
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0003Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0004Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0005Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0006Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0007Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0008Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0009Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0010Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0011Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0012Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0013Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0014Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0015Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos0016Db.hbm.xml</value>
+     	             	        
+				<value>com/kangdainfo/tcbw/model/bo/Cos4001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos4002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos4003Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos4004Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos4005Db.hbm.xml</value>
+
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos1001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Cos7001Db.hbm.xml</value>     	        
+     	        
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0003Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0004Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0005Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0006Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0007Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0008Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg0009Db.hbm.xml</value>
+     	        
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4003Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4004Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4005Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4006Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4007Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4008Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4009Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4010Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg4011Db.hbm.xml</value>
+     	         
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg5001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg5002Db.hbm.xml</value>
+     	        
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg6001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg6002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg6003Db.hbm.xml</value>
+
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg7001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg7002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg7003Db.hbm.xml</value>
+     	        
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg8001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg8002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg8003Db.hbm.xml</value>
+				<value>com/kangdainfo/tcbw/model/bo/Drg8004Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg8005Db.hbm.xml</value>
+     	        
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg1001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg1002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Drg1003Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/DrgView.hbm.xml</value>
+     	        
+     	        <value>com/kangdainfo/tcbw/model/bo/Med1001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Med1002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Med1003Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med1004Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med1005Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med1006Db.hbm.xml</value>
+ 
+ 
+                <value>com/kangdainfo/tcbw/model/bo/Med0001Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0002Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0003Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0004Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0005Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0006Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0007Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0008Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0009Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med0010Db.hbm.xml</value>
+                
+                <value>com/kangdainfo/tcbw/model/bo/Med2001Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med2002Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med2003Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med2004Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med2005Db.hbm.xml</value>
+ 
+                <value>com/kangdainfo/tcbw/model/bo/Med4001Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med4002Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med4003Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med4004Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med4005Db.hbm.xml</value>
+                
+                
+                <value>com/kangdainfo/tcbw/model/bo/Med5001Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Med5002Db.hbm.xml</value>
+     	        <value>com/kangdainfo/tcbw/model/bo/Med5003Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med5004Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Med5005Db.hbm.xml</value>
+                
+                <value>com/kangdainfo/tcbw/model/bo/Med7001Db.hbm.xml</value>
+ 				<value>com/kangdainfo/tcbw/model/bo/Med7002Db.hbm.xml</value>
+ 				<value>com/kangdainfo/tcbw/model/bo/Med7003Db.hbm.xml</value>
+ 				<value>com/kangdainfo/tcbw/model/bo/Med7004Db.hbm.xml</value>
+ 				<value>com/kangdainfo/tcbw/model/bo/Med7005Db.hbm.xml</value>
+ 				
+ 				<value>com/kangdainfo/tcbw/model/bo/Med9001Db.hbm.xml</value>
+ 				<value>com/kangdainfo/tcbw/model/bo/Med9002Db.hbm.xml</value>
+ 				<value>com/kangdainfo/tcbw/model/bo/Med9003Db.hbm.xml</value>
+ 				                                          
+                <value>com/kangdainfo/tcbw/model/bo/Export0001Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Export0002Db.hbm.xml</value>
+                
+                <value>com/kangdainfo/tcbw/model/bo/Variant0001Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Variant0002Db.hbm.xml</value>
+             
+             
+                <value>com/kangdainfo/tcbw/model/bo/Con3001Db.hbm.xml</value>
+                <value>com/kangdainfo/tcbw/model/bo/Con3002Db.hbm.xml</value>
+             
+			</list>
+			
+		</property>
+
+		<!-- 若是使用Annotation對應，請放在這裡：若有可能，請儘量使用XML的方式，因為Annotation雖然方便，但不若傳統的XML來得彈性-->
+        <property name="annotatedClasses">    
+            <list>
+            </list>    
+        </property> 
+        
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            	<prop key="hibernate.default_schema">${dataSource.schema}</prop>
+            	<prop key="hibernate.max_fetch_depth">${hibernate.max_fetch_depth}</prop>
+            	<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
+            	<prop key="hibernate.default_batch_fetch_size">${hibernate.default_batch_fetch_size}</prop>
+            	<prop key="hibernate.bytecode.use_reflection_optimizer">${hibernate.bytecode.use_reflection_optimizer}</prop>
+            	<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+
+				<!-- =========== cache =========== -->            	
+            	<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+            	<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+
+				<!-- connection pool setting -->
+				<prop key="hibernate.c3p0.max_size">${hibernate.c3p0.maxPoolSize}</prop>
+				<prop key="hibernate.c3p0.min_size">${hibernate.c3p0.minPoolSize}</prop>
+				<prop key="hibernate.c3p0.timeout">300000</prop>
+				<prop key="hibernate.c3p0.max_statements">${hibernate.c3p0.maxStatements}</prop>
+				<prop key="hibernate.c3p0.acquire_increment">${hibernate.c3p0.acquireIncrement}</prop>
+				<prop key="hibernate.c3p0.numHelperThreads">${hibernate.c3p0.numHelperThreads}</prop>
+				<prop key="hibernate.c3p0.autoCommitOnClose">${hibernate.c3p0.autoCommitOnClose}</prop>				
+				
+				<!-- 
+				<prop key="hibernate.connection.provider_class">${hibernate.connection.provider_class}</prop>
+				<prop key="hibernate.proxool.pool_alias">${hibernate.proxool.pool_alias}</prop>
+				<prop key="hibernate.proxool.existing_pool">${hibernate.proxool.existing_pool}</prop>
+
+				<prop key="hibernate.dbcp.maxActive">${hibernate.dbcp.maxActive}</prop>
+				<prop key="hibernate.dbcp.whenExhaustedAction">${hibernate.dbcp.whenExhaustedAction}</prop>
+				<prop key="hibernate.dbcp.maxWait">${hibernate.dbcp.maxWait}</prop>
+				<prop key="hibernate.dbcp.maxIdle">${hibernate.dbcp.maxIdle}</prop>
+				<prop key="hibernate.dbcp.ps.maxActive">${hibernate.dbcp.ps.maxActive}</prop>
+				<prop key="hibernate.dbcp.ps.whenExhaustedAction">${hibernate.dbcp.ps.whenExhaustedAction}</prop>
+				<prop key="hibernate.dbcp.ps.maxWait">${hibernate.dbcp.ps.maxWait}</prop>
+				<prop key="hibernate.dbcp.ps.maxIdle">${hibernate.dbcp.ps.maxIdle}</prop>
+				 -->							
+			</props>
+		</property>			
+		<property name="schemaUpdate"><value>${spring.schemaUpdate}</value></property>
+	</bean>
+
+</beans>

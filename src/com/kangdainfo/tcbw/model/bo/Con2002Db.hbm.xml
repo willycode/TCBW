@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class 
+    name="com.kangdainfo.tcbw.model.bo.Con2002Db" 
+    table="CON2002_DB"
+    lazy="false"
+>
+   <id
+        name="id"
+        type="java.lang.Long"
+        column="ID"
+    >
+        <generator class="native">
+            <param name="sequence">CON2002_DB_SEQ</param>
+        </generator>
+    </id>
+    
+ 
+    
+    <property
+        name="con1009Db"
+        type="java.lang.Long"
+        column="CON1009ID"
+ 
+    />
+    
+    <property
+        name="bnhi"
+        type="java.lang.String"
+        column="BNHI"
+        length="2"
+    />
+     <property
+        name="agencyAddress"
+        type="java.lang.String"
+        column="AGENCYADDRESS"
+        length="100"
+    />   
+      <property
+        name="medAgencyCode"
+        type="java.lang.String"
+        column="MEDAGENCYCODE"
+        length="12"
+    />
+      <property
+        name="medAgencyName"
+        type="java.lang.String"
+        column="MEDAGENCYNAME"
+        length="100"
+    />
+    <property
+        name="areaTel"
+        type="java.lang.String"
+        column="AREATEL"
+        length="2"
+    />
+    <property
+        name="tel"
+        type="java.lang.String"
+        column="TEL"
+        length="15"
+    />
+    <property
+        name="engageKind"
+        type="java.lang.String"
+        column="ENGAGEKIND"
+        length="10"
+    />
+    <property
+        name="medAgencyKind"
+        type="java.lang.String"
+        column="MEDAGENCYKIND"
+        length="10"
+    />
+      <property
+        name="endDate"
+        type="java.lang.String"
+        column="ENDDATE"
+        length="7"
+    />
+ 
+    <property
+        name="receiveSystem"
+        type="java.lang.String"
+        column="RECEIVESYSTEM"
+        length="50"
+    />
+    <property
+        name="receiveDate"
+        type="java.lang.String"
+        column="RECEIVEDATE"
+        length="7"
+    />
+    <property
+        name="receiveTime"
+        type="java.lang.String"
+        column="RECEIVETIME"
+        length="6"
+    />
+    
+    <property
+        name="creator"
+        type="java.lang.String"
+        column="CREATOR"
+        length="50"
+    />
+    <property
+        name="createDate"
+        type="java.lang.String"
+        column="CREATEDATE"
+        length="7"
+    />
+    <property
+        name="createTime"
+        type="java.lang.String"
+        column="CREATETIME"
+        length="6"
+    />
+    
+    <property
+        name="modifier"
+        type="java.lang.String"
+        column="MODIFIER"
+        length="50"
+    />
+    <property
+        name="modifyDate"
+        type="java.lang.String"
+        column="MODIFYDATE"
+        length="7"
+    />
+    <property
+        name="modifyTime"
+        type="java.lang.String"
+        column="MODIFYTIME"
+        length="7"
+    />
+    
+</class>
+</hibernate-mapping>
